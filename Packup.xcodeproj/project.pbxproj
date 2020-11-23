@@ -19,6 +19,54 @@
 		91826DA1256ABDCE00E5164D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91826D72256ABDCC00E5164D /* Persistence.swift */; };
 		91826DA2256ABDCE00E5164D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91826D73256ABDCD00E5164D /* Assets.xcassets */; };
 		91826DA3256ABDCE00E5164D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91826D73256ABDCD00E5164D /* Assets.xcassets */; };
+		91826DCC256ABE7300E5164D /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DB8256ABE7300E5164D /* Inter-Bold.otf */; };
+		91826DCD256ABE7300E5164D /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DB8256ABE7300E5164D /* Inter-Bold.otf */; };
+		91826DCE256ABE7300E5164D /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DB9256ABE7300E5164D /* Inter-Regular.otf */; };
+		91826DCF256ABE7300E5164D /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DB9256ABE7300E5164D /* Inter-Regular.otf */; };
+		91826DD0256ABE7300E5164D /* Inter-V.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBA256ABE7300E5164D /* Inter-V.otf */; };
+		91826DD1256ABE7300E5164D /* Inter-V.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBA256ABE7300E5164D /* Inter-V.otf */; };
+		91826DD2256ABE7300E5164D /* Inter-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBB256ABE7300E5164D /* Inter-SemiBoldItalic.otf */; };
+		91826DD3256ABE7300E5164D /* Inter-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBB256ABE7300E5164D /* Inter-SemiBoldItalic.otf */; };
+		91826DD4256ABE7300E5164D /* Inter-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBC256ABE7300E5164D /* Inter-Thin.otf */; };
+		91826DD5256ABE7300E5164D /* Inter-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBC256ABE7300E5164D /* Inter-Thin.otf */; };
+		91826DD6256ABE7300E5164D /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBD256ABE7300E5164D /* Inter-Light.otf */; };
+		91826DD7256ABE7300E5164D /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBD256ABE7300E5164D /* Inter-Light.otf */; };
+		91826DD8256ABE7300E5164D /* Inter-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBE256ABE7300E5164D /* Inter-ExtraLightItalic.otf */; };
+		91826DD9256ABE7300E5164D /* Inter-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBE256ABE7300E5164D /* Inter-ExtraLightItalic.otf */; };
+		91826DDA256ABE7300E5164D /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBF256ABE7300E5164D /* Inter-Medium.otf */; };
+		91826DDB256ABE7300E5164D /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DBF256ABE7300E5164D /* Inter-Medium.otf */; };
+		91826DDC256ABE7300E5164D /* .uuid in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC0256ABE7300E5164D /* .uuid */; };
+		91826DDD256ABE7300E5164D /* .uuid in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC0256ABE7300E5164D /* .uuid */; };
+		91826DDE256ABE7300E5164D /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC1256ABE7300E5164D /* Inter-SemiBold.otf */; };
+		91826DDF256ABE7300E5164D /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC1256ABE7300E5164D /* Inter-SemiBold.otf */; };
+		91826DE0256ABE7300E5164D /* Inter-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC2256ABE7300E5164D /* Inter-BlackItalic.otf */; };
+		91826DE1256ABE7300E5164D /* Inter-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC2256ABE7300E5164D /* Inter-BlackItalic.otf */; };
+		91826DE2256ABE7300E5164D /* Inter-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC3256ABE7300E5164D /* Inter-MediumItalic.otf */; };
+		91826DE3256ABE7300E5164D /* Inter-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC3256ABE7300E5164D /* Inter-MediumItalic.otf */; };
+		91826DE4256ABE7300E5164D /* Inter-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC4256ABE7300E5164D /* Inter-Black.otf */; };
+		91826DE5256ABE7300E5164D /* Inter-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC4256ABE7300E5164D /* Inter-Black.otf */; };
+		91826DE6256ABE7300E5164D /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC5256ABE7300E5164D /* Inter-Italic.otf */; };
+		91826DE7256ABE7300E5164D /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC5256ABE7300E5164D /* Inter-Italic.otf */; };
+		91826DE8256ABE7300E5164D /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC6256ABE7300E5164D /* Inter-ExtraBold.otf */; };
+		91826DE9256ABE7300E5164D /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC6256ABE7300E5164D /* Inter-ExtraBold.otf */; };
+		91826DEA256ABE7300E5164D /* Inter-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC7256ABE7300E5164D /* Inter-ThinItalic.otf */; };
+		91826DEB256ABE7300E5164D /* Inter-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC7256ABE7300E5164D /* Inter-ThinItalic.otf */; };
+		91826DEC256ABE7300E5164D /* Inter-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC8256ABE7300E5164D /* Inter-ExtraLight.otf */; };
+		91826DED256ABE7300E5164D /* Inter-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC8256ABE7300E5164D /* Inter-ExtraLight.otf */; };
+		91826DEE256ABE7300E5164D /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC9256ABE7300E5164D /* Inter-ExtraBoldItalic.otf */; };
+		91826DEF256ABE7300E5164D /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DC9256ABE7300E5164D /* Inter-ExtraBoldItalic.otf */; };
+		91826DF0256ABE7300E5164D /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DCA256ABE7300E5164D /* Inter-BoldItalic.otf */; };
+		91826DF1256ABE7300E5164D /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DCA256ABE7300E5164D /* Inter-BoldItalic.otf */; };
+		91826DF2256ABE7300E5164D /* Inter-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DCB256ABE7300E5164D /* Inter-LightItalic.otf */; };
+		91826DF3256ABE7300E5164D /* Inter-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91826DCB256ABE7300E5164D /* Inter-LightItalic.otf */; };
+		91826DF9256ABEFD00E5164D /* PackupMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91826DF8256ABEFD00E5164D /* PackupMainView.swift */; };
+		91826DFA256ABEFD00E5164D /* PackupMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91826DF8256ABEFD00E5164D /* PackupMainView.swift */; };
+		91A1F4EF256B4A39001E7F8A /* Deadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F4EE256B4A39001E7F8A /* Deadline.swift */; };
+		91A1F4F0256B4A39001E7F8A /* Deadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F4EE256B4A39001E7F8A /* Deadline.swift */; };
+		91A1F4F6256B4B67001E7F8A /* DeadlineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */; };
+		91A1F4F7256B4B67001E7F8A /* DeadlineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */; };
+		91A1F505256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
+		91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +103,30 @@
 		91826D93256ABDCD00E5164D /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91826D97256ABDCD00E5164D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		91826D99256ABDCD00E5164D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91826DB8256ABE7300E5164D /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		91826DB9256ABE7300E5164D /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		91826DBA256ABE7300E5164D /* Inter-V.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-V.otf"; sourceTree = "<group>"; };
+		91826DBB256ABE7300E5164D /* Inter-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		91826DBC256ABE7300E5164D /* Inter-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.otf"; sourceTree = "<group>"; };
+		91826DBD256ABE7300E5164D /* Inter-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.otf"; sourceTree = "<group>"; };
+		91826DBE256ABE7300E5164D /* Inter-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		91826DBF256ABE7300E5164D /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
+		91826DC0256ABE7300E5164D /* .uuid */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .uuid; sourceTree = "<group>"; };
+		91826DC1256ABE7300E5164D /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		91826DC2256ABE7300E5164D /* Inter-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.otf"; sourceTree = "<group>"; };
+		91826DC3256ABE7300E5164D /* Inter-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-MediumItalic.otf"; sourceTree = "<group>"; };
+		91826DC4256ABE7300E5164D /* Inter-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.otf"; sourceTree = "<group>"; };
+		91826DC5256ABE7300E5164D /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
+		91826DC6256ABE7300E5164D /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
+		91826DC7256ABE7300E5164D /* Inter-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ThinItalic.otf"; sourceTree = "<group>"; };
+		91826DC8256ABE7300E5164D /* Inter-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.otf"; sourceTree = "<group>"; };
+		91826DC9256ABE7300E5164D /* Inter-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		91826DCA256ABE7300E5164D /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
+		91826DCB256ABE7300E5164D /* Inter-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-LightItalic.otf"; sourceTree = "<group>"; };
+		91826DF8256ABEFD00E5164D /* PackupMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackupMainView.swift; sourceTree = "<group>"; };
+		91A1F4EE256B4A39001E7F8A /* Deadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deadline.swift; sourceTree = "<group>"; };
+		91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineListView.swift; sourceTree = "<group>"; };
+		91A1F504256B4CCB001E7F8A /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +176,16 @@
 		91826D6D256ABDCC00E5164D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				91826DB6256ABE7300E5164D /* Fonts */,
 				91826D70256ABDCC00E5164D /* PackupApp.swift */,
 				91826D71256ABDCC00E5164D /* ContentView.swift */,
 				91826D72256ABDCC00E5164D /* Persistence.swift */,
 				91826D73256ABDCD00E5164D /* Assets.xcassets */,
 				91826D6E256ABDCC00E5164D /* Packup.xcdatamodeld */,
+				91826DF8256ABEFD00E5164D /* PackupMainView.swift */,
+				91A1F4EE256B4A39001E7F8A /* Deadline.swift */,
+				91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */,
+				91A1F504256B4CCB001E7F8A /* DeadlineView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -157,6 +234,41 @@
 				91826D99256ABDCD00E5164D /* Info.plist */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		91826DB6256ABE7300E5164D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				91826DB7256ABE7300E5164D /* Inter */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		91826DB7256ABE7300E5164D /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				91826DB8256ABE7300E5164D /* Inter-Bold.otf */,
+				91826DB9256ABE7300E5164D /* Inter-Regular.otf */,
+				91826DBA256ABE7300E5164D /* Inter-V.otf */,
+				91826DBB256ABE7300E5164D /* Inter-SemiBoldItalic.otf */,
+				91826DBC256ABE7300E5164D /* Inter-Thin.otf */,
+				91826DBD256ABE7300E5164D /* Inter-Light.otf */,
+				91826DBE256ABE7300E5164D /* Inter-ExtraLightItalic.otf */,
+				91826DBF256ABE7300E5164D /* Inter-Medium.otf */,
+				91826DC0256ABE7300E5164D /* .uuid */,
+				91826DC1256ABE7300E5164D /* Inter-SemiBold.otf */,
+				91826DC2256ABE7300E5164D /* Inter-BlackItalic.otf */,
+				91826DC3256ABE7300E5164D /* Inter-MediumItalic.otf */,
+				91826DC4256ABE7300E5164D /* Inter-Black.otf */,
+				91826DC5256ABE7300E5164D /* Inter-Italic.otf */,
+				91826DC6256ABE7300E5164D /* Inter-ExtraBold.otf */,
+				91826DC7256ABE7300E5164D /* Inter-ThinItalic.otf */,
+				91826DC8256ABE7300E5164D /* Inter-ExtraLight.otf */,
+				91826DC9256ABE7300E5164D /* Inter-ExtraBoldItalic.otf */,
+				91826DCA256ABE7300E5164D /* Inter-BoldItalic.otf */,
+				91826DCB256ABE7300E5164D /* Inter-LightItalic.otf */,
+			);
+			path = Inter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +395,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91826DE6256ABE7300E5164D /* Inter-Italic.otf in Resources */,
+				91826DDC256ABE7300E5164D /* .uuid in Resources */,
 				91826DA2256ABDCE00E5164D /* Assets.xcassets in Resources */,
+				91826DE0256ABE7300E5164D /* Inter-BlackItalic.otf in Resources */,
+				91826DDE256ABE7300E5164D /* Inter-SemiBold.otf in Resources */,
+				91826DD6256ABE7300E5164D /* Inter-Light.otf in Resources */,
+				91826DF2256ABE7300E5164D /* Inter-LightItalic.otf in Resources */,
+				91826DD8256ABE7300E5164D /* Inter-ExtraLightItalic.otf in Resources */,
+				91826DD4256ABE7300E5164D /* Inter-Thin.otf in Resources */,
+				91826DCE256ABE7300E5164D /* Inter-Regular.otf in Resources */,
+				91826DF0256ABE7300E5164D /* Inter-BoldItalic.otf in Resources */,
+				91826DE4256ABE7300E5164D /* Inter-Black.otf in Resources */,
+				91826DEA256ABE7300E5164D /* Inter-ThinItalic.otf in Resources */,
+				91826DCC256ABE7300E5164D /* Inter-Bold.otf in Resources */,
+				91826DEC256ABE7300E5164D /* Inter-ExtraLight.otf in Resources */,
+				91826DD0256ABE7300E5164D /* Inter-V.otf in Resources */,
+				91826DEE256ABE7300E5164D /* Inter-ExtraBoldItalic.otf in Resources */,
+				91826DE2256ABE7300E5164D /* Inter-MediumItalic.otf in Resources */,
+				91826DDA256ABE7300E5164D /* Inter-Medium.otf in Resources */,
+				91826DE8256ABE7300E5164D /* Inter-ExtraBold.otf in Resources */,
+				91826DD2256ABE7300E5164D /* Inter-SemiBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +423,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91826DE7256ABE7300E5164D /* Inter-Italic.otf in Resources */,
+				91826DDD256ABE7300E5164D /* .uuid in Resources */,
 				91826DA3256ABDCE00E5164D /* Assets.xcassets in Resources */,
+				91826DE1256ABE7300E5164D /* Inter-BlackItalic.otf in Resources */,
+				91826DDF256ABE7300E5164D /* Inter-SemiBold.otf in Resources */,
+				91826DD7256ABE7300E5164D /* Inter-Light.otf in Resources */,
+				91826DF3256ABE7300E5164D /* Inter-LightItalic.otf in Resources */,
+				91826DD9256ABE7300E5164D /* Inter-ExtraLightItalic.otf in Resources */,
+				91826DD5256ABE7300E5164D /* Inter-Thin.otf in Resources */,
+				91826DCF256ABE7300E5164D /* Inter-Regular.otf in Resources */,
+				91826DF1256ABE7300E5164D /* Inter-BoldItalic.otf in Resources */,
+				91826DE5256ABE7300E5164D /* Inter-Black.otf in Resources */,
+				91826DEB256ABE7300E5164D /* Inter-ThinItalic.otf in Resources */,
+				91826DCD256ABE7300E5164D /* Inter-Bold.otf in Resources */,
+				91826DED256ABE7300E5164D /* Inter-ExtraLight.otf in Resources */,
+				91826DD1256ABE7300E5164D /* Inter-V.otf in Resources */,
+				91826DEF256ABE7300E5164D /* Inter-ExtraBoldItalic.otf in Resources */,
+				91826DE3256ABE7300E5164D /* Inter-MediumItalic.otf in Resources */,
+				91826DDB256ABE7300E5164D /* Inter-Medium.otf in Resources */,
+				91826DE9256ABE7300E5164D /* Inter-ExtraBold.otf in Resources */,
+				91826DD3256ABE7300E5164D /* Inter-SemiBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,9 +468,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91826DF9256ABEFD00E5164D /* PackupMainView.swift in Sources */,
+				91A1F4EF256B4A39001E7F8A /* Deadline.swift in Sources */,
 				91826D9A256ABDCD00E5164D /* Packup.xcdatamodeld in Sources */,
 				91826DA0256ABDCE00E5164D /* Persistence.swift in Sources */,
 				91826D9C256ABDCD00E5164D /* PackupApp.swift in Sources */,
+				91A1F4F6256B4B67001E7F8A /* DeadlineListView.swift in Sources */,
+				91A1F505256B4CCB001E7F8A /* DeadlineView.swift in Sources */,
 				91826D9E256ABDCD00E5164D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,9 +483,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91826DFA256ABEFD00E5164D /* PackupMainView.swift in Sources */,
+				91A1F4F0256B4A39001E7F8A /* Deadline.swift in Sources */,
 				91826D9B256ABDCD00E5164D /* Packup.xcdatamodeld in Sources */,
 				91826DA1256ABDCE00E5164D /* Persistence.swift in Sources */,
 				91826D9D256ABDCD00E5164D /* PackupApp.swift in Sources */,
+				91A1F4F7256B4B67001E7F8A /* DeadlineListView.swift in Sources */,
+				91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */,
 				91826D9F256ABDCE00E5164D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
