@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct PackupApp: App {
     let persistenceController = PersistenceController.shared
+    let packup: Packup = Packup()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SwitchView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(packup)
         }
     }
 }

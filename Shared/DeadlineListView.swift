@@ -7,7 +7,12 @@
 
 import SwiftUI
 
+// TODO: Pass context to me!
 struct DeadlineListView: View {
+    @FetchRequest(entity: Deadline.entity(),
+                  sortDescriptors: [NSSortDescriptor(keyPath: \Deadline.dueTime, ascending: true)]
+    ) var deadlineList: FetchedResults<Deadline>
+    
     var body: some View {
         VStack(spacing: 0.0) {
             ZStack {
@@ -32,11 +37,13 @@ struct DeadlineListView: View {
             
 
             ScrollView {
-                DeadlineView()
-                    
+                ForEach(deadlineList, id: \.uid) { deadline in
+                    DeadlineView(deadline: deadline)
+                }
+//                DeadlineView(deadline: deadlineList[0])
+//                DeadlineView(deadline: deadlineList[1])
+//                DeadlineView(deadline: deadlineList[2])
             }
-        
-            
         }
     }
 }
@@ -44,5 +51,6 @@ struct DeadlineListView: View {
 struct DeadlineListView_Previews: PreviewProvider {
     static var previews: some View {
         DeadlineListView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

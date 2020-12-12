@@ -6,25 +6,43 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SwitchView: View {
-    @State var accountValid: Bool = false
-    @State var infoExpired: Bool = true
+    @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var packup: Packup
     
-//    @EnvironmentObject var packup: Packup
+    // a @State is necessary here to notify the UI on the first launch
+    @State var accountValid: Bool = false
+    
+    var infoExpired: Bool {
+        get {
+            packup.infoExpired
+        }
+        set {
+            if newValue == true {
+                // Already expired
+                accountValid = false
+            }
+        }
+    }
     
     var body: some View {
-        if !accountValid && infoExpired {
-            LoginView(accountValid: $accountValid)
-//                .environmentObject(self.packup)
-        } else {
-            PackupMainView()
+        Group {
+            if !accountValid && infoExpired {
+                LoginView(accountValid: $accountValid)
+                    .environmentObject(self.packup)
+            } else {
+                PackupMainView()
+            }
         }
+        .animation(.easeInOut(duration: 1))
     }
 }
 
 struct SwitchView_Previews: PreviewProvider {
     static var previews: some View {
         SwitchView()
+            .environmentObject(Packup())
     }
 }

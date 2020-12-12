@@ -39,11 +39,9 @@ let testJSON = """
 """
 
 struct DeadlineView: View {
+    var deadline: Deadline
     
-    
-    var Deadlines = [
-        DeadlineJSON(testJSON, using: .utf8)!
-    ]
+//    var deadline = DeadlineJSON(testJSON, using: .utf8)!
     
     var body: some View {
         VStack {
@@ -56,7 +54,7 @@ struct DeadlineView: View {
                     .frame(height: 30.0)
                     .foregroundColor(Color(white: 0.95))
                 
-                Text(Deadlines[0].calendarName)
+                Text(deadline.sourceName)
                     .padding(.leading, 10.0)
                     .foregroundColor(.gray)
                     
@@ -70,20 +68,20 @@ struct DeadlineView: View {
                 
                 VStack(alignment: .leading,
                        spacing: 5.0) {
-                    Text(Deadlines[0].title)
+                    Text(deadline.name)
                         .font(.title3)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         
                     
                     HStack {
                         Image(systemName: "calendar")
-                        Text(Deadlines[0].endDate)
+                        Text(dateToString(deadline.dueTime!))
                     }
                         .foregroundColor(.gray)
                     
                     HStack {
                         Image(systemName: "folder")
-                        Text(Deadlines[0].calendarName)
+                        Text(deadline.sourceName)
                     }
                         .foregroundColor(.gray)
                     
@@ -98,10 +96,16 @@ struct DeadlineView: View {
             .padding()
         }
     }
-}
-
-struct DeadlineView_Previews: PreviewProvider {
-    static var previews: some View {
-        DeadlineView()
+    
+    func dateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.string(from: date)
     }
 }
+
+//struct DeadlineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DeadlineView()
+//    }
+//}

@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct LoginView: View {
+    @Environment(\.managedObjectContext) var context
     @EnvironmentObject var packup: Packup
     
     @State var studentID: String = ""
     @State var password: String = ""
     
     @State var blocking = false
+    @State var showLoginFailedAlert = false
     
     @Binding var accountValid: Bool
     
@@ -29,6 +32,7 @@ struct LoginView: View {
                     })
                 TextField("Student ID", text: $studentID)
                     .loginTextFieldStyle()
+                    .disableAutocorrection(true)
                 SecureField("Password", text: $password)
                     .loginTextFieldStyle()
                 Button(action: {
@@ -36,10 +40,16 @@ struct LoginView: View {
                     packup.password = password
                     blocking = true
                     
-                    DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.global(qos: .userInteractive).async {
                         accountValid = packup.validateAccount()
                         DispatchQueue.main.async {
                             blocking = false
+                            if !accountValid {
+                                showLoginFailedAlert = true
+                            }
+                        }
+                        if accountValid {
+                            packup.fetchCourseDeadlineAndUpdate(context: context)
                         }
                     }
                 }) {
@@ -59,6 +69,11 @@ struct LoginView: View {
                                 }
                             }
                         )
+                }
+                .alert(isPresented: $showLoginFailedAlert) {
+                    Alert(title: Text("Login Failed"),
+                          message: Text("Please check your network, studend ID, or password."),
+                          dismissButton: .default(Text("OK")))
                 }
             }
             .offset(y: geometry.size.height / 8)

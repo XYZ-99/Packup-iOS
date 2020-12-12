@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91266EE72584E5B8009E9E37 /* UIPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91266EE62584E5B8009E9E37 /* UIPlayground.swift */; };
+		91266EE82584E5B8009E9E37 /* UIPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91266EE62584E5B8009E9E37 /* UIPlayground.swift */; };
 		912FEEF4257DC4D200930888 /* DeadlineFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */; };
 		912FEEF5257DC4D200930888 /* DeadlineFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */; };
 		912FEF0925830C5400930888 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FEF0825830C5300930888 /* LoginView.swift */; };
@@ -97,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91266EE62584E5B8009E9E37 /* UIPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayground.swift; sourceTree = "<group>"; };
 		912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineFetcher.swift; sourceTree = "<group>"; };
 		912FEF0825830C5300930888 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		912FEF0F25830C9A00930888 /* Packup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packup.swift; sourceTree = "<group>"; };
@@ -193,19 +196,20 @@
 			children = (
 				91826DB6256ABE7300E5164D /* Fonts */,
 				91826D70256ABDCC00E5164D /* PackupApp.swift */,
+				91804E6525845EC200B431A3 /* SwitchView.swift */,
+				91826DF8256ABEFD00E5164D /* PackupMainView.swift */,
+				912FEF0825830C5300930888 /* LoginView.swift */,
+				912FEF0F25830C9A00930888 /* Packup.swift */,
 				91826D71256ABDCC00E5164D /* ContentView.swift */,
 				91826D72256ABDCC00E5164D /* Persistence.swift */,
 				91826D73256ABDCD00E5164D /* Assets.xcassets */,
-				91826DF8256ABEFD00E5164D /* PackupMainView.swift */,
-				91804E6525845EC200B431A3 /* SwitchView.swift */,
 				91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */,
+				91266EE62584E5B8009E9E37 /* UIPlayground.swift */,
 				91A1F504256B4CCB001E7F8A /* DeadlineView.swift */,
 				91826D6E256ABDCC00E5164D /* Packup.xcdatamodeld */,
 				91A1F4EE256B4A39001E7F8A /* Deadline.swift */,
 				915975C7257DC18200D13BB1 /* DeadlineJSONList.swift */,
 				912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */,
-				912FEF0825830C5300930888 /* LoginView.swift */,
-				912FEF0F25830C9A00930888 /* Packup.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -494,6 +498,7 @@
 				915975C8257DC18200D13BB1 /* DeadlineJSONList.swift in Sources */,
 				91826DA0256ABDCE00E5164D /* Persistence.swift in Sources */,
 				91804E6625845EC200B431A3 /* SwitchView.swift in Sources */,
+				91266EE72584E5B8009E9E37 /* UIPlayground.swift in Sources */,
 				912FEEF4257DC4D200930888 /* DeadlineFetcher.swift in Sources */,
 				91826D9C256ABDCD00E5164D /* PackupApp.swift in Sources */,
 				912FEF1025830C9A00930888 /* Packup.swift in Sources */,
@@ -514,6 +519,7 @@
 				915975C9257DC18200D13BB1 /* DeadlineJSONList.swift in Sources */,
 				91826DA1256ABDCE00E5164D /* Persistence.swift in Sources */,
 				91804E6725845EC200B431A3 /* SwitchView.swift in Sources */,
+				91266EE82584E5B8009E9E37 /* UIPlayground.swift in Sources */,
 				912FEEF5257DC4D200930888 /* DeadlineFetcher.swift in Sources */,
 				91826D9D256ABDCD00E5164D /* PackupApp.swift in Sources */,
 				912FEF1125830C9A00930888 /* Packup.swift in Sources */,

@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct PackupMainView: View {
+    @Environment(\.managedObjectContext) var context
+    
     var body: some View {
-        TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
-            DeadlineListView().tabItem {
+        TabView {
+            DeadlineListView()
+                .environment(\.managedObjectContext, context)
+                .tabItem {
                 Image(systemName: "clock.fill")
             }.tag(1)
             Text("Tab Content 2").tabItem {
@@ -19,6 +24,9 @@ struct PackupMainView: View {
             Text("Tab Content 3").tabItem {
                 Image(systemName: "folder")
             }.tag(3)
+        }
+        .onAppear {
+            UITabBar.appearance().barTintColor = .white
         }
     }
 }
