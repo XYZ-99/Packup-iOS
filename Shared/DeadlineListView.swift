@@ -30,24 +30,9 @@ struct DeadlineListView: View {
             .frame(height: 50.0)
             .ignoresSafeArea(.all, edges: .top)
             
-            ZStack (alignment: Alignment(
-                            horizontal: .leading,
-                            vertical: .center
-                        )
-                    ) {
-                Rectangle()
-                    .frame(height: 30.0)
-                    .foregroundColor(Color(white: 0.9))
-                
-                Text("操作系统")
-                    .padding(.leading, 10.0)
-                    .foregroundColor(.gray)
-                    
-            }
 
-            List {
+            ScrollView {
                 DeadlineView()
-                    .padding(.horizontal, -20.0)
                     
             }
         

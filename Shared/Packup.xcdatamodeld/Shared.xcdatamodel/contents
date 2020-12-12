@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Deadline" representedClassName="Deadline" syncable="YES" codeGenerationType="class">
+        <attribute name="courseObjectID_" optional="YES" attributeType="String"/>
+        <attribute name="crawlUpdateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="deadlineDescription_" optional="YES" attributeType="String"/>
+        <attribute name="dueTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eventType_" optional="YES" attributeType="String"/>
+        <attribute name="hasBeenDeleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="hasSubmission" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isStarred" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="reminder" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sourceName_" optional="YES" attributeType="String"/>
+        <attribute name="syncTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="uid_" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
+        <element name="Deadline" positionX="-63" positionY="-18" width="128" height="253"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
     </elements>
 </model>

@@ -5,23 +5,83 @@
 //  Created by Yinzhen Xu on 2020/11/23.
 //
 
-import Foundation
+import CoreData
 
-struct Deadline {
-    var uid: Int
-    var name: String?
-    var description: String?
-    var event_type: String?
-    var course_object_id: String?
-    var source_name: String?
-    var reminder: UInt64?
-    /* 从教学网抓下来的时间 */
-    var crawl_update_time: UInt64?
-    /* 和服务器同步的时间 */
-    var sync_time: UInt64?
-    var due_time: UInt64?
-    var is_finished: Bool
-    var is_deleted: Bool
-    var is_starred: Bool
-    var has_submission: Bool
+extension Deadline {
+    var uid: Int {
+        get {
+            Int(uid_)
+        }
+        set {
+            uid_ = Int64(newValue)
+        }
+    }
+    
+    var name: String {
+        get {
+            name_ ?? "Untitled"
+        }
+        set {
+            name_ = newValue
+        }
+    }
+    
+    var deadlineDescription: String {
+        get {
+            deadlineDescription_ ?? "Unknown"
+        }
+        set {
+            deadlineDescription_ = newValue
+        }
+    }
+    
+    var eventType: String {
+        get {
+            eventType_ ?? "Unknown type"
+        }
+        set {
+            eventType_ = newValue
+        }
+    }
+    
+    var courseObjectID: String {
+        get {
+            courseObjectID_ ?? "Unknown ID"
+        }
+        set {
+            courseObjectID_ = newValue
+        }
+    }
+    
+    var sourceName: String {
+        get {
+            sourceName_ ?? "Unknown source name"
+        }
+        set {
+            sourceName_ = newValue
+        }
+    }
+    
+    
+    func update(from deadlineJSON: DeadlineJSON) {
+        uid = Int(deadlineJSON.itemSourceID.replacingOccurrences(of: "_", with: ""))!
+        name = deadlineJSON.title
+        deadlineDescription = deadlineJSON.calendarID
+        eventType = deadlineJSON.eventType
+        courseObjectID = deadlineJSON.itemSourceID
+        sourceName = deadlineJSON.calendarName
+        reminder = nil
+        
+        crawlUpdateTime = Date()
+        let zuluDateFormatter = DateFormatter()
+        zuluDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssZ"
+        zuluDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dueTime = zuluDateFormatter.date(from: deadlineJSON.endDate)
+        syncTime = nil
+        
+        isCompleted = false
+        hasBeenDeleted = false
+        isStarred = false
+        hasSubmission = false
+    }
 }
