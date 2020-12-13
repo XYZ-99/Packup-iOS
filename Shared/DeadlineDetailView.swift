@@ -8,72 +8,134 @@
 import SwiftUI
 
 struct DeadlineDetailView: View {
+    @State var sliderValue: Double = 0.0
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                ZStack(alignment: .bottom) {
-                    Color("AccentColor")
-                        .frame(height: geometry.size.height / 4)
-                    
-                    VStack(alignment: .leading, spacing: 0.0) {
+                VStack(alignment: .leading, spacing: 0.0) {
+                    HStack {
+                        Text("3 Days Remaining")
+                            .tagBackground(Color.red)
+                            .padding()
+                        
                         HStack {
-                            Text("Lab4 Virtual Memory")
-                                .font(.title)
-                                .fontWeight(.semibold)
-                                
-                                
-                            Spacer()
-                            Image(systemName: "star")
+                            Text("Operating System")
+                            Image(systemName: "chevron.right")
                         }
-                        .padding([.leading, .bottom, .trailing])
-                        
-                        Text("2020 Fall")
-                        .padding([.leading, .bottom, .trailing])
-                        
+                        .tagBackground(Color.black.opacity(0.1))
+                            
                     }
-                    .foregroundColor(.white)
+                    
+                    
+                    HStack {
+                        Text("Lab4 Virtual Memory")
+                            .font(.title)
+                            .fontWeight(.semibold)
                         
+                        Spacer()
+                        Image(systemName: "star")
+                    }
+                    .padding([.leading, .bottom, .trailing])
                 }
-                .ignoresSafeArea(/*@START_MENU_TOKEN@*/.container/*@END_MENU_TOKEN@*/, edges: /*@START_MENU_TOKEN@*/.top/*@END_MENU_TOKEN@*/)
-                .position(x: geometry.size.width / 2, y: geometry.size.height / 8)
-                
+                .foregroundColor(.white)
+                .padding(.top, 20)
+                .background(
+                    Color("AccentColor").edgesIgnoringSafeArea(.top)
+                )
+
                 VStack() {
-                    HStack {
-                        Text("Starts from")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                            .padding()
-                        Spacer()
+                    Group {
+                        HStack {
+                            Text("Description")
+                                .grayHeadline()
+                            Spacer()
+                        }
+                            
+                        HStack {
+                            Text("Still not the penultimate lab of this semester. And this description is very long.")
+                                .padding([.leading, .trailing, .bottom])
+                            Spacer()
+                        }
                     }
+                    
+                    Group {
+                        HStack {
+                            Text("Due Time")
+                                .grayHeadline()
+                            Spacer()
+                        }
                         
-                    HStack {
-                        Text("2020-12-02 13:00")
-                            .padding([.leading, .trailing, .bottom])
-                        Spacer()
+                        HStack {
+                            Text("2020-12-08 23:00")
+                                .padding([.leading, .trailing, .bottom])
+                            Spacer()
+                        }
                     }
                     
-                    HStack {
-                        Text("Ends at")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                            .padding()
-                        Spacer()
+                    Group {
+                        HStack {
+                            Text("Reminder")
+                                .grayHeadline()
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            Text("2020-12-08 23:00")
+                                .padding([.leading, .trailing, .bottom])
+                            Spacer()
+                        }
+                    
                     }
                     
+                    Slider(value: $sliderValue, in: 1...100)
+                        .padding()
+                    Divider()
                     HStack {
-                        Text("2020-12-08 23:00")
-                            .padding([.leading, .trailing, .bottom])
+                        Text("Attachments")
+                            .grayHeadline()
                         Spacer()
                     }
                     
                     Spacer()
                     
                 }
-                .padding()
+                .padding([.leading, .trailing, .top])
                 .frame(minWidth: geometry.size.width, minHeight: 3 * geometry.size.height / 4)
-                    
             }
         }
+    }
+}
+
+struct TagBackgroundModifier: ViewModifier {
+    let backgroundColor: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(5)
+            .padding([.leading, .trailing], 5)
+            .background(backgroundColor.cornerRadius(5))
+    }
+}
+
+extension View {
+    func tagBackground(_ backgroundColor: Color) -> some View {
+        self.modifier(TagBackgroundModifier(backgroundColor: backgroundColor))
+    }
+}
+
+struct GrayHeadlineModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .foregroundColor(.gray)
+            .padding([.top, .bottom])
+    }
+}
+
+extension View {
+    func grayHeadline() -> some View {
+        self.modifier(GrayHeadlineModifier())
     }
 }
 
