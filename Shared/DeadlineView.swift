@@ -52,7 +52,7 @@ struct DeadlineView: View {
                     ) {
                 Rectangle()
                     .frame(height: 30.0)
-                    .foregroundColor(Color(white: 0.95))
+                    .foregroundColor(Color("TextFieldGray"))
                 
                 Text(deadline.sourceName)
                     .padding(.leading, 10.0)

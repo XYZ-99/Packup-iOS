@@ -54,7 +54,7 @@ struct LoginView: View {
                     }
                 }) {
                     RoundedRectangle(cornerRadius: 3)
-                        .frame(maxHeight: 50)
+                        .frame(minHeight: 50, maxHeight: 55)
                         .padding()
                         .foregroundColor(Color("PackupRed"))
                         .overlay(
@@ -76,7 +76,7 @@ struct LoginView: View {
                           dismissButton: .default(Text("OK")))
                 }
             }
-            .offset(y: geometry.size.height / 8)
+            .offset(y: geometry.size.height / 8 - 10)
         }
     }
 }
@@ -89,7 +89,7 @@ struct LoginTextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
-            .background(Color.lightGray)
+            .background(Color("TextFieldGray"))
             .cornerRadius(5.0)
             .padding()
     }

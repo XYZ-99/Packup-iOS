@@ -163,3 +163,4 @@ func synchronizedConnect(baseString: String, httpMethod: String = "GET", queryKe
     
     return returnData
 }
+

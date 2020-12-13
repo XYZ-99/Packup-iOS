@@ -15,7 +15,8 @@ struct DeadlineListView: View {
     
     var body: some View {
         VStack(spacing: 0.0) {
-            ZStack {
+            // FIXME: This hard coding menu bar
+            ZStack(alignment: .bottom) {
                 Rectangle()
                     .foregroundColor(.accentColor)
                     
@@ -33,24 +34,20 @@ struct DeadlineListView: View {
                 .padding(.top, 90.0)
             }
             .frame(height: 50.0)
-            .ignoresSafeArea(.all, edges: .top)
+            .ignoresSafeArea(.all, edges: .all)
             
-
-            ScrollView {
+            List {
                 ForEach(deadlineList, id: \.uid) { deadline in
                     DeadlineView(deadline: deadline)
+                        .listRowInsets(EdgeInsets())
                 }
-//                DeadlineView(deadline: deadlineList[0])
-//                DeadlineView(deadline: deadlineList[1])
-//                DeadlineView(deadline: deadlineList[2])
             }
         }
     }
 }
 
-struct DeadlineListView_Previews: PreviewProvider {
-    static var previews: some View {
-        DeadlineListView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct DeadlineListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DeadlineListView()
+//    }
+//}
