@@ -25,9 +25,10 @@ struct PackupMainView: View {
                 Image(systemName: "folder")
             }.tag(3)
         }
-        .onAppear {
-            UITabBar.appearance().barTintColor = .white
-        }
+//            .onAppear {
+//                UITabBar.appearance().barTintColor = .white
+//            }
+        
     }
 }
 

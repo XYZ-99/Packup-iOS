@@ -13,6 +13,8 @@ struct DeadlineListView: View {
                   sortDescriptors: [NSSortDescriptor(keyPath: \Deadline.dueTime, ascending: true)]
     ) var deadlineList: FetchedResults<Deadline>
     
+    @State var isShowingDeadlineDetails: Bool = false
+    
     var body: some View {
         VStack(spacing: 0.0) {
             HStack {
@@ -21,20 +23,25 @@ struct DeadlineListView: View {
                     .font(Font.custom("Inter-Bold", size: 25.0))
                     .padding()
                 Spacer()
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .rotationEffect(Angle(degrees: 90))
-                    .padding()
+                Button(action: {}) {
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                        .rotationEffect(Angle(degrees: 90.0))
+                        .padding()
+                }
             }
             .foregroundColor(.white)
-            .padding(.top, 20)
             .background(
-                Color("AccentColor").edgesIgnoringSafeArea(.top)
+                Color("PackupBlue").edgesIgnoringSafeArea([.top, .leading, .trailing])
             )
             
             List {
                 ForEach(deadlineList, id: \.uid) { deadline in
-                    DeadlineView(deadline: deadline)
-                        .listRowInsets(EdgeInsets())
+                    Button(action: { isShowingDeadlineDetails = true }) {
+                        DeadlineView(deadline: deadline)
+                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                        DeadlineDetailView()
+                    }
+                    .listRowInsets(EdgeInsets())
                 }
             }
         }

@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct UIPlayground: View {
+    @State var disappear: Bool = false;
+    @State var testToggle: Bool = false {
+        didSet {
+            if testToggle {
+                disappear = true;
+            } else {
+                disappear = false;
+            }
+        }
+    }
+    
     var body: some View {
         ScrollView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Text("Hel")
-            Text("H")
+            if !disappear {
+                Text("Hello world")
+            }
+            
+            Button("What") {
+                testToggle.toggle()
+            }
         }
     }
 }

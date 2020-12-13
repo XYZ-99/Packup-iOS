@@ -72,7 +72,9 @@ class Packup: ObservableObject {
     }
     func fetchCourseDeadlineAndUpdate(context: NSManagedObjectContext) {
         let deadlineJSONList: DeadlineJSONList = deadlineFetcher.fetchCourseDeadlines(studentID: studentID, password: password) ?? []
-        print(deadlineJSONList.count)
+        if deadlineJSONList.count > 0 {
+            lastConnectedToDeadlineTime = Date()
+        }
         for deadlineJSON in deadlineJSONList {
             Deadline.update(from: deadlineJSON, in: context)
         }

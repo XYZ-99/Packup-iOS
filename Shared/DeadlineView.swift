@@ -84,7 +84,6 @@ struct DeadlineView: View {
                         Text(deadline.sourceName)
                     }
                         .foregroundColor(.gray)
-                    
                 }
                 
                 

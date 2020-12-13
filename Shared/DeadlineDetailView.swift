@@ -13,79 +13,85 @@ struct DeadlineDetailView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                VStack(alignment: .leading, spacing: 0.0) {
-                    HStack {
-                        Text("3 Days Remaining")
-                            .tagBackground(Color.red)
-                            .padding()
+                VStack {
+                    Capsule()
+                        .frame(width: 40, height: 7)
+                        .foregroundColor(Color("TagBackgroundGray"))
+                        
+                    VStack(alignment: .leading, spacing: 0.0) {
+                        HStack {
+                            Text("3 Days Remaining")
+                                .tagBackground(Color.red)
+                                .padding()
+                            
+                            HStack {
+                                Text("Operating System")
+                                Image(systemName: "chevron.right")
+                            }
+                            .tagBackground(Color("TagBackgroundGray"))
+                        }
+                        
                         
                         HStack {
-                            Text("Operating System")
-                            Image(systemName: "chevron.right")
-                        }
-                        .tagBackground(Color.black.opacity(0.1))
+                            Text("Lab4 Virtual Memory")
+                                .font(.title)
+                                .fontWeight(.semibold)
                             
+                            Spacer()
+                            Image(systemName: "star")
+                        }
+                        .padding([.leading, .bottom, .trailing])
                     }
-                    
-                    
-                    HStack {
-                        Text("Lab4 Virtual Memory")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        
-                        Spacer()
-                        Image(systemName: "star")
-                    }
-                    .padding([.leading, .bottom, .trailing])
+                    .foregroundColor(.white)
                 }
-                .foregroundColor(.white)
-                .padding(.top, 20)
+                .padding(.top, 10)
                 .background(
-                    Color("AccentColor").edgesIgnoringSafeArea(.top)
+                    Color("PackupBlue").edgesIgnoringSafeArea(.top)
                 )
 
                 VStack() {
                     Group {
-                        HStack {
-                            Text("Description")
-                                .grayHeadline()
-                            Spacer()
+                        Group {
+                            HStack {
+                                Text("Description")
+                                    .grayHeadline()
+                                Spacer()
+                            }
+                                
+                            HStack {
+                                Text("Still not the penultimate lab of this semester. And this description is very long.")
+                                    .padding([.leading, .trailing, .bottom])
+                                Spacer()
+                            }
                         }
+                        
+                        Group {
+                            HStack {
+                                Text("Due Time")
+                                    .grayHeadline()
+                                Spacer()
+                            }
                             
-                        HStack {
-                            Text("Still not the penultimate lab of this semester. And this description is very long.")
-                                .padding([.leading, .trailing, .bottom])
-                            Spacer()
-                        }
-                    }
-                    
-                    Group {
-                        HStack {
-                            Text("Due Time")
-                                .grayHeadline()
-                            Spacer()
+                            HStack {
+                                Text("2020-12-08 23:00")
+                                    .padding([.leading, .trailing, .bottom])
+                                Spacer()
+                            }
                         }
                         
-                        HStack {
-                            Text("2020-12-08 23:00")
-                                .padding([.leading, .trailing, .bottom])
-                            Spacer()
+                        Group {
+                            HStack {
+                                Text("Reminder")
+                                    .grayHeadline()
+                                Spacer()
+                            }
+                            
+                            HStack {
+                                Text("2020-12-08 23:00")
+                                    .padding([.leading, .trailing, .bottom])
+                                Spacer()
+                            }
                         }
-                    }
-                    
-                    Group {
-                        HStack {
-                            Text("Reminder")
-                                .grayHeadline()
-                            Spacer()
-                        }
-                        
-                        HStack {
-                            Text("2020-12-08 23:00")
-                                .padding([.leading, .trailing, .bottom])
-                            Spacer()
-                        }
-                    
                     }
                     
                     Slider(value: $sliderValue, in: 1...100)

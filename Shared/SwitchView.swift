@@ -32,11 +32,11 @@ struct SwitchView: View {
             if !accountValid && infoExpired {
                 LoginView(accountValid: $accountValid)
                     .environmentObject(self.packup)
+                    .animation(.easeInOut(duration: 1))
             } else {
                 PackupMainView()
             }
         }
-        .animation(.easeInOut(duration: 1))
     }
 }
 
