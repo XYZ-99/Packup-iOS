@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C49200C7F541E2F99783F54 /* Pods_Packup__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618D3A9FAA7BEAB6A24EF62B /* Pods_Packup__iOS_.framework */; };
 		91266EE72584E5B8009E9E37 /* UIPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91266EE62584E5B8009E9E37 /* UIPlayground.swift */; };
 		91266EE82584E5B8009E9E37 /* UIPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91266EE62584E5B8009E9E37 /* UIPlayground.swift */; };
 		912FEEF4257DC4D200930888 /* DeadlineFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */; };
@@ -81,6 +82,7 @@
 		91A1F4F7256B4B67001E7F8A /* DeadlineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */; };
 		91A1F505256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
 		91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
+		C4B8456ABEA23031CD3042AE /* Pods_Packup__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142C9453B1A3CD7F4C624EF5 /* Pods_Packup__macOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		142C9453B1A3CD7F4C624EF5 /* Pods_Packup__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Packup__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33FDA5F1A2C389B287F2627B /* Pods-Packup (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packup (iOS).release.xcconfig"; path = "Target Support Files/Pods-Packup (iOS)/Pods-Packup (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		590D2E1063EC8416F645AC41 /* Pods-Packup (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packup (macOS).release.xcconfig"; path = "Target Support Files/Pods-Packup (macOS)/Pods-Packup (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		618D3A9FAA7BEAB6A24EF62B /* Pods_Packup__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Packup__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6AECEED3B2DBADE22905EE /* Pods-Packup (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packup (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Packup (iOS)/Pods-Packup (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		91266EE62584E5B8009E9E37 /* UIPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayground.swift; sourceTree = "<group>"; };
 		912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineFetcher.swift; sourceTree = "<group>"; };
 		912FEF0825830C5300930888 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 		91A1F4EE256B4A39001E7F8A /* Deadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deadline.swift; sourceTree = "<group>"; };
 		91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineListView.swift; sourceTree = "<group>"; };
 		91A1F504256B4CCB001E7F8A /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
+		A62B5A42ED4C114A1E2F7954 /* Pods-Packup (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packup (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Packup (macOS)/Pods-Packup (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C49200C7F541E2F99783F54 /* Pods_Packup__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B8456ABEA23031CD3042AE /* Pods_Packup__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +192,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0064FE547FB14589FC782188 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D6AECEED3B2DBADE22905EE /* Pods-Packup (iOS).debug.xcconfig */,
+				33FDA5F1A2C389B287F2627B /* Pods-Packup (iOS).release.xcconfig */,
+				A62B5A42ED4C114A1E2F7954 /* Pods-Packup (macOS).debug.xcconfig */,
+				590D2E1063EC8416F645AC41 /* Pods-Packup (macOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2FC78135CDC8F798BD8540BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				618D3A9FAA7BEAB6A24EF62B /* Pods_Packup__iOS_.framework */,
+				142C9453B1A3CD7F4C624EF5 /* Pods_Packup__macOS_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91826D68256ABDCC00E5164D = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +221,8 @@
 				91826D8B256ABDCD00E5164D /* Tests iOS */,
 				91826D96256ABDCD00E5164D /* Tests macOS */,
 				91826D79256ABDCD00E5164D /* Products */,
+				0064FE547FB14589FC782188 /* Pods */,
+				2FC78135CDC8F798BD8540BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,8 +236,8 @@
 				91321DFC2585D773000CB3EA /* DeadlineDetailView.swift */,
 				91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */,
 				91A1F504256B4CCB001E7F8A /* DeadlineView.swift */,
-				912FEF0825830C5300930888 /* LoginView.swift */,
 				912FEF0F25830C9A00930888 /* Packup.swift */,
+				912FEF0825830C5300930888 /* LoginView.swift */,
 				91826D71256ABDCC00E5164D /* ContentView.swift */,
 				91826D72256ABDCC00E5164D /* Persistence.swift */,
 				91826D73256ABDCD00E5164D /* Assets.xcassets */,
@@ -306,9 +338,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91826DA6256ABDCE00E5164D /* Build configuration list for PBXNativeTarget "Packup (iOS)" */;
 			buildPhases = (
+				4DB2F4EFE1E377E384AEE63E /* [CP] Check Pods Manifest.lock */,
 				91826D74256ABDCD00E5164D /* Sources */,
 				91826D75256ABDCD00E5164D /* Frameworks */,
 				91826D76256ABDCD00E5164D /* Resources */,
+				33DCE332907F5A7ACF8AC1FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +357,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91826DA9256ABDCE00E5164D /* Build configuration list for PBXNativeTarget "Packup (macOS)" */;
 			buildPhases = (
+				7F2776714ED95AED96A7DE37 /* [CP] Check Pods Manifest.lock */,
 				91826D7C256ABDCD00E5164D /* Sources */,
 				91826D7D256ABDCD00E5164D /* Frameworks */,
 				91826D7E256ABDCD00E5164D /* Resources */,
@@ -379,7 +414,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					91826D77256ABDCD00E5164D = {
 						CreatedOnToolsVersion = 12.2;
@@ -490,6 +525,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33DCE332907F5A7ACF8AC1FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Packup (iOS)/Pods-Packup (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Packup (iOS)/Pods-Packup (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Packup (iOS)/Pods-Packup (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DB2F4EFE1E377E384AEE63E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Packup (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F2776714ED95AED96A7DE37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Packup (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		91826D74256ABDCD00E5164D /* Sources */ = {
@@ -681,6 +780,7 @@
 		};
 		91826DA7256ABDCE00E5164D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D6AECEED3B2DBADE22905EE /* Pods-Packup (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -703,6 +803,7 @@
 		};
 		91826DA8256ABDCE00E5164D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33FDA5F1A2C389B287F2627B /* Pods-Packup (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -726,10 +827,12 @@
 		};
 		91826DAA256ABDCE00E5164D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A62B5A42ED4C114A1E2F7954 /* Pods-Packup (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A564PD26NB;
@@ -750,10 +853,12 @@
 		};
 		91826DAB256ABDCE00E5164D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 590D2E1063EC8416F645AC41 /* Pods-Packup (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A564PD26NB;

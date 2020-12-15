@@ -48,7 +48,8 @@ struct DeadlineDetailView: View {
                                 .padding()
                             
                             HStack {
-                                Text("Operating System")
+                                Text(deadline.sourceName)
+                                    .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
                                 Image(systemName: "chevron.right")
                             }
                             .tagBackground(Color("TagBackgroundGray"))
@@ -56,7 +57,7 @@ struct DeadlineDetailView: View {
                         
                         
                         HStack {
-                            Text("Lab4 Virtual Memory")
+                            Text(deadline.name)
                                 .font(.title)
                                 .fontWeight(.semibold)
                             
@@ -82,7 +83,7 @@ struct DeadlineDetailView: View {
                             }
                                 
                             HStack {
-                                Text("Still not the penultimate lab of this semester. And this description is very long.")
+                                Text(deadline.description)
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }
@@ -96,7 +97,7 @@ struct DeadlineDetailView: View {
                             }
                             
                             HStack {
-                                Text("2020-12-08 23:00")
+                                Text(deadline.dueTime?.toPackupFormatString() ?? "")
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }
@@ -110,7 +111,7 @@ struct DeadlineDetailView: View {
                             }
                             
                             HStack {
-                                Text("2020-12-08 23:00")
+                                Text(deadline.reminder?.toPackupFormatString() ?? "")
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }

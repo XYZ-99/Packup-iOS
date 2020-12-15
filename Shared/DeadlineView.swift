@@ -74,7 +74,7 @@ struct DeadlineView: View {
                         
                     
                     Label(
-                        title: { Text(dateToString(deadline.dueTime!)) },
+                        title: { Text(deadline.dueTime?.toPackupFormatString() ?? "") },
                         icon: { Image(systemName: "calendar") }
                     )
                     .foregroundColor(.gray)
@@ -102,11 +102,13 @@ struct DeadlineView: View {
             .padding()
         }
     }
-    
-    func dateToString(_ date: Date) -> String {
+}
+
+extension Date {
+    func toPackupFormatString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return formatter.string(from: date)
+        return formatter.string(from: self)
     }
 }
 
