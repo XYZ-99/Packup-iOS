@@ -7,16 +7,19 @@
 
 import SwiftUI
 import CoreData
+import FluentIcons
 
 struct PackupMainView: View {
     @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var packup: Packup
     
     var body: some View {
         TabView {
             DeadlineListView()
                 .environment(\.managedObjectContext, context)
+                .environmentObject(self.packup)
                 .tabItem {
-                Image(systemName: "clock.fill")
+                    Image(systemName: "clock.fill")
             }.tag(1)
             Text("Tab Content 2").tabItem {
                 Image(systemName: "calendar")

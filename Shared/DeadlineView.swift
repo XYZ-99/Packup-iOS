@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 let testJSON = """
 {
@@ -39,6 +40,7 @@ let testJSON = """
 """
 
 struct DeadlineView: View {
+    @Environment(\.managedObjectContext) var context
     var deadline: Deadline
     
 //    var deadline = DeadlineJSON(testJSON, using: .utf8)!
@@ -61,9 +63,20 @@ struct DeadlineView: View {
             }
             
             HStack() {
-                Image(systemName: "square")
-                    .foregroundColor(.gray)
-                    .padding(.trailing)
+                Button(action: {
+                    deadline.isCompleted = true
+                    deadline.objectWillChange.send()
+                    
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Unable to save deadline isCompleted in DeadlineView!")
+                    }
+                }){
+                    Image(systemName: "square")
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+                }
                     
                 
                 VStack(alignment: .leading,

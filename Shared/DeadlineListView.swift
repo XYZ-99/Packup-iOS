@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DeadlineListView: View {
     @FetchRequest(entity: Deadline.entity(),
-                  sortDescriptors: [NSSortDescriptor(keyPath: \Deadline.dueTime, ascending: true)]
+                  sortDescriptors: [NSSortDescriptor(keyPath: \Deadline.dueTime, ascending: true)],
+                  predicate: NSPredicate(format: "isCompleted == false"),
+                  animation: Animation.linear(duration: 0.3)
     ) var deadlineList: FetchedResults<Deadline>
+    
+    @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var packup: Packup
     
     @State var isShowingDeadlineDetails: Bool = false
     @State var syncing: Bool = false
@@ -24,10 +30,13 @@ struct DeadlineListView: View {
                     .font(Font.custom("Inter-Bold", size: 25.0))
                     .padding()
                 Spacer()
+                // TODO: Sync with the course
                 Button(action: {
                     syncing = true
                     DispatchQueue.global(qos: .userInteractive).async {
-                        sleep(1)
+                        // TODO: Notify on failure
+                        // TODO: Log out manually
+                        packup.fetchCourseDeadlineAndUpdate(context: context) // lastConnectedToDeadlineTime will help invalidate
                         syncing = false
                     }
                 }) {
@@ -52,9 +61,11 @@ struct DeadlineListView: View {
             )
             
             List {
+                // TODO: transition
                 ForEach(deadlineList, id: \.uid) { deadline in
                     Button(action: { isShowingDeadlineDetails = true }) {
                         DeadlineView(deadline: deadline)
+                            .transition(.scale)
                     }.sheet(isPresented: $isShowingDeadlineDetails) {
                         DeadlineDetailView(deadline: deadline)
                     }

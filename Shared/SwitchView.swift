@@ -35,6 +35,7 @@ struct SwitchView: View {
                     .animation(.easeInOut(duration: 1))
             } else {
                 PackupMainView()
+                    .environmentObject(self.packup)
             }
         }
     }

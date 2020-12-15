@@ -43,12 +43,16 @@ struct DeadlineDetailView: View {
                         
                     VStack(alignment: .leading, spacing: 0.0) {
                         HStack {
-                            Text("3 Days Remaining")
-                                .tagBackground(Color.red)
-                                .padding()
+                            // TODO: submitted
+                            if let dueTime = deadline.dueTime {
+                                Text("\(Date().daysLeftSinceNow(to: dueTime)) Days Left")
+                                    .tagBackground(Color.red)
+                                    .padding()
+                            }
                             
                             HStack {
                                 Text(deadline.sourceName)
+                                    .lineLimit(1)
                                     .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
                                 Image(systemName: "chevron.right")
                             }
@@ -83,7 +87,7 @@ struct DeadlineDetailView: View {
                             }
                                 
                             HStack {
-                                Text(deadline.description)
+                                Text(deadline.sourceName)
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }
@@ -97,7 +101,7 @@ struct DeadlineDetailView: View {
                             }
                             
                             HStack {
-                                Text(deadline.dueTime?.toPackupFormatString() ?? "")
+                                DefaultGrayNoneText(deadline.dueTime?.toPackupFormatString())
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }
@@ -111,7 +115,7 @@ struct DeadlineDetailView: View {
                             }
                             
                             HStack {
-                                Text(deadline.reminder?.toPackupFormatString() ?? "")
+                                DefaultGrayNoneText(deadline.reminder?.toPackupFormatString())
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }
@@ -140,6 +144,14 @@ struct DeadlineDetailView: View {
     }
 }
 
+extension Date {
+    static let secondsPerDay: Int = 86400
+    
+    func daysLeftSinceNow(to dueTime: Date) -> Int {
+        return -1 * (Int(self.timeIntervalSince(dueTime)) / (Self.secondsPerDay))
+    }
+}
+
 struct TagBackgroundModifier: ViewModifier {
     let backgroundColor: Color
     
@@ -154,6 +166,23 @@ struct TagBackgroundModifier: ViewModifier {
 extension View {
     func tagBackground(_ backgroundColor: Color) -> some View {
         self.modifier(TagBackgroundModifier(backgroundColor: backgroundColor))
+    }
+}
+
+struct DefaultGrayNoneText: View {
+    let text: String?
+    
+    init(_ content: String?) {
+        self.text = content
+    }
+    
+    var body: some View {
+        if let text = text {
+            Text(text)
+        } else {
+            Text("None")
+                .foregroundColor(.gray)
+        }
     }
 }
 

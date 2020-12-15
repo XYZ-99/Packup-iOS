@@ -232,12 +232,12 @@
 				91826DB6256ABE7300E5164D /* Fonts */,
 				91826D70256ABDCC00E5164D /* PackupApp.swift */,
 				91804E6525845EC200B431A3 /* SwitchView.swift */,
+				912FEF0825830C5300930888 /* LoginView.swift */,
 				91826DF8256ABEFD00E5164D /* PackupMainView.swift */,
-				91321DFC2585D773000CB3EA /* DeadlineDetailView.swift */,
 				91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */,
 				91A1F504256B4CCB001E7F8A /* DeadlineView.swift */,
+				91321DFC2585D773000CB3EA /* DeadlineDetailView.swift */,
 				912FEF0F25830C9A00930888 /* Packup.swift */,
-				912FEF0825830C5300930888 /* LoginView.swift */,
 				91826D71256ABDCC00E5164D /* ContentView.swift */,
 				91826D72256ABDCC00E5164D /* Persistence.swift */,
 				91826D73256ABDCD00E5164D /* Assets.xcassets */,
@@ -343,6 +343,7 @@
 				91826D75256ABDCD00E5164D /* Frameworks */,
 				91826D76256ABDCD00E5164D /* Resources */,
 				33DCE332907F5A7ACF8AC1FA /* [CP] Embed Pods Frameworks */,
+				911A7809258853EF001F70CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -587,6 +588,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		911A7809258853EF001F70CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nICON_SOURCE_PATH=\"./Pods/FluentIcons\"\n\n$ICON_SOURCE_PATH/ios/remove-unused-fluent-icons/run \\\n    --path-to-source-code \".\" \\\n    --path-to-fluent-icon-source $ICON_SOURCE_PATH\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
