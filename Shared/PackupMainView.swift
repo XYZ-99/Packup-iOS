@@ -1,5 +1,5 @@
 //
-//  TodoList.swift
+//  PackupMainView.swift
 //  Packup
 //
 //  Created by Yinzhen Xu on 2020/11/22.
@@ -32,7 +32,7 @@ struct PackupMainView: View {
     }
 }
 
-struct TodoList_Previews: PreviewProvider {
+struct PackupMainView_Previews: PreviewProvider {
     static var previews: some View {
         PackupMainView()
     }

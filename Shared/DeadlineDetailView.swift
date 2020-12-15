@@ -7,8 +7,17 @@
 
 import SwiftUI
 
+// TODO: Cancel, Done <- @Binding isShowingDeadlineDetails
+// TODO: Pass the context to this view
+// TODO: Save any changes to the deadline <- no need for functions if changes are limited to dates and reminders <- pass the deadline pls
+// TODO: Truncate the course String(or use truncate)
 struct DeadlineDetailView: View {
     @State var sliderValue: Double = 0.0
+    
+    // TODO: set to false on save
+    @State var modified: Bool = false
+    
+    var deadline: Deadline
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,6 +26,20 @@ struct DeadlineDetailView: View {
                     Capsule()
                         .frame(width: 40, height: 7)
                         .foregroundColor(Color("TagBackgroundGray"))
+                        
+                    
+                    HStack {
+                        Spacer()
+
+                        Button(action: {}) {
+                            Text("Confirm")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.trailing)
+                        .opacity(modified ? 1 : 0)
+                        .animation(.easeInOut(duration: 0.2))
+                        
+                    }
                         
                     VStack(alignment: .leading, spacing: 0.0) {
                         HStack {
@@ -95,6 +118,9 @@ struct DeadlineDetailView: View {
                     }
                     
                     Slider(value: $sliderValue, in: 1...100)
+                        .onChange(of: sliderValue, perform: { value in
+                            modified = true
+                        })
                         .padding()
                     Divider()
                     HStack {
@@ -147,6 +173,6 @@ extension View {
 
 struct DeadlineDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DeadlineDetailView()
+        DeadlineDetailView(deadline: Deadline())
     }
 }

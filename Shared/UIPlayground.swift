@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UIPlayground: View {
     @State var disappear: Bool = false;
+    @State var present: Bool = false
+    
     @State var testToggle: Bool = false {
         didSet {
             if testToggle {
@@ -25,9 +27,10 @@ struct UIPlayground: View {
                 Text("Hello world")
             }
             
-            Button("What") {
-                testToggle.toggle()
-            }
+            
+            
+            
+            
         }
     }
 }

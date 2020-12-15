@@ -45,15 +45,12 @@ class Packup: ObservableObject {
     var infoExpired: Bool {
         if let lastConnectedToDeadlineTime = lastConnectedToDeadlineTime {
             if lastConnectedToDeadlineTime + accountInfoExpireTimeInterval < Date() {
-                print(1)
                 // Outdated
                 return true
             } else {
-                print(2)
                 return false
             }
         } else {
-            print(3)
             // Not yet connected
             return true
         }

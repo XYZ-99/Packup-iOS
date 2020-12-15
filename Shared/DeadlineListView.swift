@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-// TODO: Pass context to me!
 struct DeadlineListView: View {
     @FetchRequest(entity: Deadline.entity(),
                   sortDescriptors: [NSSortDescriptor(keyPath: \Deadline.dueTime, ascending: true)]
     ) var deadlineList: FetchedResults<Deadline>
     
     @State var isShowingDeadlineDetails: Bool = false
+    @State var syncing: Bool = false
+    
     
     var body: some View {
         VStack(spacing: 0.0) {
@@ -23,10 +24,26 @@ struct DeadlineListView: View {
                     .font(Font.custom("Inter-Bold", size: 25.0))
                     .padding()
                 Spacer()
-                Button(action: {}) {
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                        .rotationEffect(Angle(degrees: 90.0))
-                        .padding()
+                Button(action: {
+                    syncing = true
+                    DispatchQueue.global(qos: .userInteractive).async {
+                        sleep(1)
+                        syncing = false
+                    }
+                }) {
+                    // TODO: Come up with a more natural way to do it!
+                    ZStack {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .rotationEffect(Angle(degrees: syncing ? 450.0 : 90.0))
+                            .animation(.linear(duration: 1.0))
+                            .padding()
+                            .opacity(syncing ? 1 : 0)
+                        
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .rotationEffect(Angle(degrees: 90.0))
+                            .padding()
+                            .opacity(syncing ? 0 : 1)
+                    }
                 }
             }
             .foregroundColor(.white)
@@ -39,7 +56,7 @@ struct DeadlineListView: View {
                     Button(action: { isShowingDeadlineDetails = true }) {
                         DeadlineView(deadline: deadline)
                     }.sheet(isPresented: $isShowingDeadlineDetails) {
-                        DeadlineDetailView()
+                        DeadlineDetailView(deadline: deadline)
                     }
                     .listRowInsets(EdgeInsets())
                 }

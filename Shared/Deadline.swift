@@ -62,6 +62,7 @@ extension Deadline {
         }
     }
     
+    // TODO: Distinguish the update from the course(e.g., dueTime, submission, etc.), and update from the user(e.g., deleted, starred, etc.)
     @discardableResult
     static func update(from deadlineJSON: DeadlineJSON, in context: NSManagedObjectContext) -> Deadline {
         let request = NSFetchRequest<Deadline>(entityName: "Deadline")

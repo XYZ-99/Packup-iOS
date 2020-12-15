@@ -73,17 +73,24 @@ struct DeadlineView: View {
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         
                     
-                    HStack {
-                        Image(systemName: "calendar")
-                        Text(dateToString(deadline.dueTime!))
-                    }
-                        .foregroundColor(.gray)
+                    Label(
+                        title: { Text(dateToString(deadline.dueTime!)) },
+                        icon: { Image(systemName: "calendar") }
+                    )
+                    .foregroundColor(.gray)
+                    .alignmentGuide(.leading, computeValue: { dimension in
+                        5
+                    })
                     
-                    HStack {
-                        Image(systemName: "folder")
-                        Text(deadline.sourceName)
-                    }
-                        .foregroundColor(.gray)
+                    
+                    Label(
+                        title: { Text(deadline.sourceName) },
+                        icon: { Image(systemName: "folder") }
+                    )
+                    .foregroundColor(.gray)
+                    .alignmentGuide(.leading, computeValue: { dimension in
+                        5
+                    })
                 }
                 
                 
