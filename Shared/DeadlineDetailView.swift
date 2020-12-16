@@ -8,10 +8,6 @@
 import SwiftUI
 import CoreData
 
-// TODO: Cancel, Done <- @Binding isShowingDeadlineDetails
-// TODO: Pass the context to this view
-// TODO: Save any changes to the deadline <- no need for functions if changes are limited to dates and reminders <- pass the deadline pls
-// TODO: Truncate the course String(or use truncate)
 struct DeadlineDetailView: View {
     @State var sliderValue: Double = 0.0
     
@@ -21,6 +17,28 @@ struct DeadlineDetailView: View {
     var deadline: Deadline
     
     @Environment(\.managedObjectContext) var context
+    
+    @State var selectedReminderDate: Date
+    
+    let reminderDateRange: ClosedRange<Date>
+    
+    @Binding var isShowingDeadlineDetails: Bool
+    
+    init(deadline: Deadline, isShowingDeadlineDetails: Binding<Bool>) {
+        self.deadline = deadline
+        self._selectedReminderDate = State(wrappedValue: self.deadline.reminder ?? Date())
+        let startDate = Date()
+        self._isShowingDeadlineDetails = isShowingDeadlineDetails
+
+        
+        if let dueTime = deadline.dueTime, dueTime > startDate {
+            let endDate = dueTime
+            reminderDateRange = startDate...endDate
+        } else {
+            let endComponents = DateComponents(year: 2070, month: 12, day: 31)
+            reminderDateRange = startDate...Calendar.current.date(from: endComponents)!
+        }
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -34,7 +52,18 @@ struct DeadlineDetailView: View {
                     HStack {
                         Spacer()
 
-                        Button(action: {}) {
+                        Button(action: {
+                            deadline.reminder = selectedReminderDate
+                            deadline.objectWillChange.send()
+                            
+                            do {
+                                try context.save()
+                            } catch {
+                                print("deadline.reminder does not save in DeadlineDetailView!")
+                            }
+                            
+                            isShowingDeadlineDetails = false
+                        }) {
                             Text("Confirm")
                                 .foregroundColor(.white)
                         }
@@ -46,10 +75,14 @@ struct DeadlineDetailView: View {
                         
                     VStack(alignment: .leading, spacing: 0.0) {
                         HStack {
-                            // TODO: submitted
-                            if let dueTime = deadline.dueTime {
+                            // TODO: Submitted
+                            if let dueTime = deadline.dueTime, dueTime > Date() {
                                 Text("\(Date().daysLeftSinceNow(to: dueTime)) Days Left")
                                     .tagBackground(Color.red)
+                                    .padding()
+                            } else {
+                                Text("Submitted")
+                                    .tagBackground(Color.green)
                                     .padding()
                             }
                             
@@ -122,14 +155,23 @@ struct DeadlineDetailView: View {
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }
+                            
+                            DatePicker(selection: $selectedReminderDate, displayedComponents: [.hourAndMinute, .date]) {
+                                Text("Reminder")
+                                    .padding(.leading)
+                                    .foregroundColor(.gray)
+                            }
+                            .onChange(of: selectedReminderDate, perform: { _ in
+                                modified = true
+                            })
                         }
                     }
                     
-                    Slider(value: $sliderValue, in: 1...100)
-                        .onChange(of: sliderValue, perform: { value in
-                            modified = true
-                        })
-                        .padding()
+//                    Slider(value: $sliderValue, in: 1...100)
+//                        .onChange(of: sliderValue, perform: { _ in
+//                            modified = true
+//                        })
+//                        .padding()
                     Divider()
                     HStack {
                         Text("Attachments")
@@ -206,6 +248,6 @@ extension View {
 
 struct DeadlineDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DeadlineDetailView(deadline: Deadline())
+        DeadlineDetailView(deadline: Deadline(), isShowingDeadlineDetails: Binding.constant(true))
     }
 }

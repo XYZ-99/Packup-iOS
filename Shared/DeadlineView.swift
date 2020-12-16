@@ -42,77 +42,183 @@ let testJSON = """
 struct DeadlineView: View {
     @Environment(\.managedObjectContext) var context
     var deadline: Deadline
+    var hasCaption: Bool
+    var caption: String
+    var isStarred: Bool
+    var isCompleted: Bool
+    
+    init(deadline: Deadline, hasCaption: Bool = false, caption: String = "") {
+        self.deadline = deadline
+        self.hasCaption = hasCaption
+        self.caption = caption
+        
+        self.isStarred = deadline.isStarred
+        self.isCompleted = deadline.isCompleted
+    }
     
 //    var deadline = DeadlineJSON(testJSON, using: .utf8)!
     
     var body: some View {
         VStack {
-            ZStack (alignment: Alignment(
-                            horizontal: .leading,
-                            vertical: .center
-                        )
-                    ) {
-                Rectangle()
-                    .frame(height: 30.0)
-                    .foregroundColor(Color("TextFieldGray"))
-                
-                Text(deadline.sourceName)
-                    .padding(.leading, 10.0)
-                    .foregroundColor(.gray)
+            if hasCaption {
+                ZStack (alignment: Alignment(
+                                horizontal: .leading,
+                                vertical: .center
+                            )
+                        ) {
+                    Rectangle()
+                        .frame(height: 30.0)
+                        .foregroundColor(Color("TextFieldGray"))
                     
+                    Text(caption)
+                        .padding(.leading, 10.0)
+                        .foregroundColor(.gray)
+                        
+                }
             }
             
-            HStack() {
-                Button(action: {
-                    deadline.isCompleted = true
-                    deadline.objectWillChange.send()
-                    
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Unable to save deadline isCompleted in DeadlineView!")
+            // TODO: prune this lengthy code
+            if !isCompleted {
+                HStack() {
+                    Button(action: {
+                        deadline.isCompleted = !isCompleted
+                        deadline.objectWillChange.send()
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Unable to save deadline isCompleted in DeadlineView!")
+                        }
+                    }){
+                        Image(systemName: "square")
+                            .foregroundColor(.gray)
+                            .padding(.trailing)
                     }
-                }){
-                    Image(systemName: "square")
-                        .foregroundColor(.gray)
-                        .padding(.trailing)
-                }
-                    
-                
-                VStack(alignment: .leading,
-                       spacing: 5.0) {
-                    Text(deadline.name)
-                        .font(.title3)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         
                     
-                    Label(
-                        title: { Text(deadline.dueTime?.toPackupFormatString() ?? "") },
-                        icon: { Image(systemName: "calendar") }
-                    )
-                    .foregroundColor(.gray)
-                    .alignmentGuide(.leading, computeValue: { dimension in
-                        5
-                    })
+                    VStack(alignment: .leading,
+                           spacing: 5.0) {
+                        Text(deadline.name)
+                            .font(.title3)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            
+                        
+                        Label(
+                            title: { Text(deadline.dueTime?.toPackupFormatString() ?? "") },
+                            icon: { Image(systemName: "calendar") }
+                        )
+                        .foregroundColor(.gray)
+                        .alignmentGuide(.leading, computeValue: { dimension in
+                            5
+                        })
+                        
+                        
+                        Label(
+                            title: { Text(deadline.sourceName) },
+                            icon: { Image(systemName: "folder") }
+                        )
+                        .foregroundColor(.gray)
+                        .alignmentGuide(.leading, computeValue: { dimension in
+                            5
+                        })
+                    }
                     
                     
-                    Label(
-                        title: { Text(deadline.sourceName) },
-                        icon: { Image(systemName: "folder") }
-                    )
-                    .foregroundColor(.gray)
-                    .alignmentGuide(.leading, computeValue: { dimension in
-                        5
-                    })
+                    Spacer()
+                    
+    //                Image(systemName: "checkmark")
+                    
+                    Button(action: {
+                        deadline.isStarred = !isStarred
+                        deadline.objectWillChange.send()
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("starred deadline unsaved in DeadlineView!")
+                        }
+                    }) {
+                        if isStarred {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                        } else {
+                            Image(systemName: "star")
+                                .foregroundColor(.black)
+                        }
+                    }
                 }
-                
-                
-                Spacer()
-                Image(systemName: "checkmark")
+                .padding()
+            } else {
+                HStack() {
+                    Button(action: {
+                        deadline.isCompleted = !isCompleted
+                        deadline.objectWillChange.send()
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Unable to save deadline isCompleted in DeadlineView!")
+                        }
+                    }){
+//                        Image(systemName: "square")
+//                            .overlay(Image(systemName: "checkmark").scaleEffect(1.2).offset(y: -5))
+                        Image(systemName: "checkmark.square.fill")
+                            .padding(.trailing)
+                    }
+                        
                     
-                Image(systemName: "star")
+                    VStack(alignment: .leading,
+                           spacing: 5.0) {
+                        Text(deadline.name)
+                            .font(.title3)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            
+                        
+                        Label(
+                            title: { Text(deadline.dueTime?.toPackupFormatString() ?? "") },
+                            icon: { Image(systemName: "calendar") }
+                        )
+                        .foregroundColor(.gray)
+                        .alignmentGuide(.leading, computeValue: { dimension in
+                            5
+                        })
+                        
+                        
+                        Label(
+                            title: { Text(deadline.sourceName) },
+                            icon: { Image(systemName: "folder") }
+                        )
+                        .foregroundColor(.gray)
+                        .alignmentGuide(.leading, computeValue: { dimension in
+                            5
+                        })
+                    }
+                    
+                    
+                    Spacer()
+                    
+    //                Image(systemName: "checkmark")
+                    
+                    Button(action: {
+                        deadline.isStarred = !isStarred
+                        deadline.objectWillChange.send()
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("starred deadline unsaved in DeadlineView!")
+                        }
+                    }) {
+                        if isStarred {
+                            Image(systemName: "star.fill")
+                        } else {
+                            Image(systemName: "star")
+                        }
+                    }
+                }
+                .padding()
+                .foregroundColor(.gray)
             }
-            .padding()
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FluentIcons
 
 struct UIPlayground: View {
     @State var disappear: Bool = false;
@@ -22,15 +23,16 @@ struct UIPlayground: View {
     }
     
     var body: some View {
+        
         ScrollView {
-            if !disappear {
-                Text("Hello world")
-            }
             
-            
-            
-            
-            
+            Text("Starred")
+                .foregroundColor(.gray)
+                .padding()
+                .background(Color("TextFieldGray").frame(height: 30))
+                .frame(width: .infinity)
+//                .listRowInsets(EdgeInsets())
+            Text("Hello")
         }
     }
 }
