@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 // TODO: Cancel, Done <- @Binding isShowingDeadlineDetails
 // TODO: Pass the context to this view
@@ -18,6 +19,8 @@ struct DeadlineDetailView: View {
     @State var modified: Bool = false
     
     var deadline: Deadline
+    
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         GeometryReader { geometry in
@@ -53,7 +56,7 @@ struct DeadlineDetailView: View {
                             HStack {
                                 Text(deadline.sourceName)
                                     .lineLimit(1)
-                                    .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
+                                    .truncationMode(.tail)
                                 Image(systemName: "chevron.right")
                             }
                             .tagBackground(Color("TagBackgroundGray"))

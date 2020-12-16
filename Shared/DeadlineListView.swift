@@ -12,7 +12,7 @@ struct DeadlineListView: View {
     @FetchRequest(entity: Deadline.entity(),
                   sortDescriptors: [NSSortDescriptor(keyPath: \Deadline.dueTime, ascending: true)],
                   predicate: NSPredicate(format: "isCompleted == false"),
-                  animation: Animation.linear(duration: 0.3)
+                  animation: Animation.linear(duration: 2)
     ) var deadlineList: FetchedResults<Deadline>
     
     @Environment(\.managedObjectContext) var context
@@ -65,7 +65,6 @@ struct DeadlineListView: View {
                 ForEach(deadlineList, id: \.uid) { deadline in
                     Button(action: { isShowingDeadlineDetails = true }) {
                         DeadlineView(deadline: deadline)
-                            .transition(.scale)
                     }.sheet(isPresented: $isShowingDeadlineDetails) {
                         DeadlineDetailView(deadline: deadline)
                     }
