@@ -23,17 +23,17 @@ struct UIPlayground: View {
     }
     
     var body: some View {
-        
-        ScrollView {
-            
-            Text("Starred")
+
+        VStack {
+            Image("celebrateDay")
+                .resizable()
+                .scaledToFit()
+                .padding([.leading, .trailing], 70)
+            Text("Let's call it a day!")
                 .foregroundColor(.gray)
                 .padding()
-                .background(Color("TextFieldGray").frame(height: 30))
-                .frame(width: .infinity)
-//                .listRowInsets(EdgeInsets())
-            Text("Hello")
         }
+        
     }
 }
 

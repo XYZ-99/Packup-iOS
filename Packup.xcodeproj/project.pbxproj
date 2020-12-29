@@ -82,6 +82,8 @@
 		91A1F4F7256B4B67001E7F8A /* DeadlineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */; };
 		91A1F505256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
 		91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
+		91BC4CBF259B754100B10DB8 /* DeadlineAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */; };
+		91BC4CC0259B754100B10DB8 /* DeadlineAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */; };
 		C4B8456ABEA23031CD3042AE /* Pods_Packup__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142C9453B1A3CD7F4C624EF5 /* Pods_Packup__macOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +157,7 @@
 		91A1F4EE256B4A39001E7F8A /* Deadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deadline.swift; sourceTree = "<group>"; };
 		91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineListView.swift; sourceTree = "<group>"; };
 		91A1F504256B4CCB001E7F8A /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
+		91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineAddView.swift; sourceTree = "<group>"; };
 		A62B5A42ED4C114A1E2F7954 /* Pods-Packup (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packup (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Packup (macOS)/Pods-Packup (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,6 +240,7 @@
 				91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */,
 				91A1F504256B4CCB001E7F8A /* DeadlineView.swift */,
 				91321DFC2585D773000CB3EA /* DeadlineDetailView.swift */,
+				91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */,
 				912FEF0F25830C9A00930888 /* Packup.swift */,
 				91826D71256ABDCC00E5164D /* ContentView.swift */,
 				91826D72256ABDCC00E5164D /* Persistence.swift */,
@@ -623,6 +627,7 @@
 				912FEEF4257DC4D200930888 /* DeadlineFetcher.swift in Sources */,
 				91826D9C256ABDCD00E5164D /* PackupApp.swift in Sources */,
 				912FEF1025830C9A00930888 /* Packup.swift in Sources */,
+				91BC4CBF259B754100B10DB8 /* DeadlineAddView.swift in Sources */,
 				91A1F4F6256B4B67001E7F8A /* DeadlineListView.swift in Sources */,
 				912FEF0925830C5400930888 /* LoginView.swift in Sources */,
 				91A1F505256B4CCB001E7F8A /* DeadlineView.swift in Sources */,
@@ -645,6 +650,7 @@
 				912FEEF5257DC4D200930888 /* DeadlineFetcher.swift in Sources */,
 				91826D9D256ABDCD00E5164D /* PackupApp.swift in Sources */,
 				912FEF1125830C9A00930888 /* Packup.swift in Sources */,
+				91BC4CC0259B754100B10DB8 /* DeadlineAddView.swift in Sources */,
 				91A1F4F7256B4B67001E7F8A /* DeadlineListView.swift in Sources */,
 				912FEF0A25830C5400930888 /* LoginView.swift in Sources */,
 				91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */,

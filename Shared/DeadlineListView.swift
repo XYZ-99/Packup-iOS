@@ -37,9 +37,11 @@ struct DeadlineListView: View {
     var body: some View {
         VStack(spacing: 0.0) {
             HStack {
-                Text("Packup")
+                Image(systemName: "line.horizontal.3")
+                    .padding(.leading)
+                Text("Deadline")
                     .multilineTextAlignment(.leading)
-                    .font(Font.custom("Inter-Bold", size: 25.0))
+                    .font(Font.custom("Inter-Regular", size: 20.0))
                     .padding()
                 Spacer()
                 // TODO: Sync with the course
@@ -66,80 +68,115 @@ struct DeadlineListView: View {
                             .opacity(syncing ? 0 : 1)
                     }
                 }
+                
+                Image(systemName: "line.horizontal.3.decrease")
+                    .padding(.trailing)
             }
             .foregroundColor(.white)
             .background(
                 Color("PackupBlue").edgesIgnoringSafeArea([.top, .leading, .trailing])
             )
-            
-            List {
-                // TODO: transition
-                if starredDeadlineList.count > 0 {
-                    ForEach(starredDeadlineList, id: \.uid) { deadline in
-                        if deadline == starredDeadlineList.first {
-                            Button(action: { isShowingDeadlineDetails = true }) {
-                                DeadlineView(deadline: deadline, hasCaption: true, caption: "Starred")
-                            }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                    .environment(\.managedObjectContext, context)
+            GeometryReader { geometry in
+                List {
+                    // TODO: transition
+                    if starredDeadlineList.count > 0 {
+                        ForEach(starredDeadlineList, id: \.uid) { deadline in
+                            if deadline == starredDeadlineList.first {
+                                Button(action: { isShowingDeadlineDetails = true }) {
+                                    DeadlineView(deadline: deadline, hasCaption: true, caption: "Starred")
+                                }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                        .environment(\.managedObjectContext, context)
+                                }
+                                .listRowInsets(EdgeInsets())
+                            } else {
+                                Button(action: { isShowingDeadlineDetails = true }) {
+                                    DeadlineView(deadline: deadline, hasCaption: false)
+                                }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                        .environment(\.managedObjectContext, context)
+                                }
+                                .listRowInsets(EdgeInsets())
                             }
-                            .listRowInsets(EdgeInsets())
-                        } else {
-                            Button(action: { isShowingDeadlineDetails = true }) {
-                                DeadlineView(deadline: deadline, hasCaption: false)
-                            }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                    .environment(\.managedObjectContext, context)
-                            }
-                            .listRowInsets(EdgeInsets())
                         }
                     }
-                }
-                
-                ForEach(deadlineList, id: \.uid) { deadline in
-                    if deadline == deadlineList.first {
-                        Button(action: { isShowingDeadlineDetails = true }) {
-                            DeadlineView(deadline: deadline, hasCaption: true, caption: "Pending")
-                        }.sheet(isPresented: $isShowingDeadlineDetails) {
-                            DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                .environment(\.managedObjectContext, context)
-                        }
-                        .listRowInsets(EdgeInsets())
-                    } else {
-                        Button(action: { isShowingDeadlineDetails = true }) {
-                            DeadlineView(deadline: deadline, hasCaption: false)
-                        }.sheet(isPresented: $isShowingDeadlineDetails) {
-                            DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                .environment(\.managedObjectContext, context)
-                        }
-                        .listRowInsets(EdgeInsets())
-                    }
-                }
-                
-                if completedDeadlineList.count > 0 {
-                    ForEach(completedDeadlineList, id: \.uid) { deadline in
-                        if deadline == completedDeadlineList.first {
-                            Button(action: { isShowingDeadlineDetails = true }) {
-                                DeadlineView(deadline: deadline, hasCaption: true, caption: "Completed")
-                            }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                    .environment(\.managedObjectContext, context)
+                    
+                    if deadlineList.count > 0 {
+                        ForEach(deadlineList, id: \.uid) { deadline in
+                            if deadline == deadlineList.first {
+                                Button(action: { isShowingDeadlineDetails = true }) {
+                                    DeadlineView(deadline: deadline, hasCaption: true, caption: "Pending")
+                                }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                        .environment(\.managedObjectContext, context)
+                                }
+                                .listRowInsets(EdgeInsets())
+                            } else {
+                                Button(action: { isShowingDeadlineDetails = true }) {
+                                    DeadlineView(deadline: deadline, hasCaption: false)
+                                }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                        .environment(\.managedObjectContext, context)
+                                }
+                                .listRowInsets(EdgeInsets())
                             }
-                            .listRowInsets(EdgeInsets())
-                        } else {
-                            Button(action: { isShowingDeadlineDetails = true }) {
-                                DeadlineView(deadline: deadline, hasCaption: false)
-                            }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                    .environment(\.managedObjectContext, context)
-                            }
-                            .listRowInsets(EdgeInsets())
                         }
                     }
+                    
+                    if completedDeadlineList.count > 0 {
+                        ForEach(completedDeadlineList, id: \.uid) { deadline in
+                            if deadline == completedDeadlineList.first {
+                                Button(action: { isShowingDeadlineDetails = true }) {
+                                    DeadlineView(deadline: deadline, hasCaption: true, caption: "Completed")
+                                }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                        .environment(\.managedObjectContext, context)
+                                }
+                                .listRowInsets(EdgeInsets())
+                            } else {
+                                Button(action: { isShowingDeadlineDetails = true }) {
+                                    DeadlineView(deadline: deadline, hasCaption: false)
+                                }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                        .environment(\.managedObjectContext, context)
+                                }
+                                .listRowInsets(EdgeInsets())
+                            }
+                        }
+                    }
+                    
+                    if starredDeadlineList.count == 0 &&
+                        deadlineList.count == 0 &&
+                        completedDeadlineList.count == 0 {
+                        VStack {
+                            Image("celebrateDay")
+                                .resizable()
+                                .scaledToFit()
+                                .padding([.leading, .trailing], 70)
+                            Text("Let's call it a day!")
+                                .foregroundColor(.gray)
+                                .padding()
+                        }
+                    }
+                    
                 }
-                
+                .overlay(AddItem()
+                            .position(x: geometry.size.width - 40.0, y: geometry.size.height - 40.0)
+                )
             }
         }
+    }
+}
+
+struct AddItem: View {
+    var body: some View {
+        Image(uiImage: UIImage(fluent: .add24Regular))
+            .foregroundColor(.white)
+            .background(Circle()
+                            .foregroundColor(Color("PackupBlue"))
+                            .scaleEffect(2.0)
+            )
+            .scaleEffect(1.2)
     }
 }
 
