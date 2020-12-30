@@ -28,6 +28,7 @@ struct DeadlineListView: View {
     ) var completedDeadlineList: FetchedResults<Deadline>
     
     @Environment(\.managedObjectContext) var context
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var packup: Packup
     
     @State var isShowingDeadlineDetails: Bool = false
@@ -149,7 +150,7 @@ struct DeadlineListView: View {
                         deadlineList.count == 0 &&
                         completedDeadlineList.count == 0 {
                         VStack {
-                            Image("celebrateDay")
+                            Image(colorScheme == .light ? "celebrateDay" : "celebrateNight")
                                 .resizable()
                                 .scaledToFit()
                                 .padding([.leading, .trailing], 70)

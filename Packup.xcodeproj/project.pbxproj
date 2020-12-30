@@ -84,6 +84,10 @@
 		91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1F504256B4CCB001E7F8A /* DeadlineView.swift */; };
 		91BC4CBF259B754100B10DB8 /* DeadlineAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */; };
 		91BC4CC0259B754100B10DB8 /* DeadlineAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */; };
+		91BC4CC6259C460700B10DB8 /* CourseInfoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CC5259C460700B10DB8 /* CourseInfoJSON.swift */; };
+		91BC4CC7259C460700B10DB8 /* CourseInfoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CC5259C460700B10DB8 /* CourseInfoJSON.swift */; };
+		91BC4CCD259C4FEA00B10DB8 /* CourseInfoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CCC259C4FEA00B10DB8 /* CourseInfoFetcher.swift */; };
+		91BC4CCE259C4FEA00B10DB8 /* CourseInfoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC4CCC259C4FEA00B10DB8 /* CourseInfoFetcher.swift */; };
 		C4B8456ABEA23031CD3042AE /* Pods_Packup__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142C9453B1A3CD7F4C624EF5 /* Pods_Packup__macOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +162,8 @@
 		91A1F4F5256B4B67001E7F8A /* DeadlineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineListView.swift; sourceTree = "<group>"; };
 		91A1F504256B4CCB001E7F8A /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
 		91BC4CBE259B754100B10DB8 /* DeadlineAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineAddView.swift; sourceTree = "<group>"; };
+		91BC4CC5259C460700B10DB8 /* CourseInfoJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoJSON.swift; sourceTree = "<group>"; };
+		91BC4CCC259C4FEA00B10DB8 /* CourseInfoFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoFetcher.swift; sourceTree = "<group>"; };
 		A62B5A42ED4C114A1E2F7954 /* Pods-Packup (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packup (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Packup (macOS)/Pods-Packup (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +256,8 @@
 				91A1F4EE256B4A39001E7F8A /* Deadline.swift */,
 				915975C7257DC18200D13BB1 /* DeadlineJSONList.swift */,
 				912FEEF3257DC4D200930888 /* DeadlineFetcher.swift */,
+				91BC4CC5259C460700B10DB8 /* CourseInfoJSON.swift */,
+				91BC4CCC259C4FEA00B10DB8 /* CourseInfoFetcher.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -617,6 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91BC4CCD259C4FEA00B10DB8 /* CourseInfoFetcher.swift in Sources */,
 				91826DF9256ABEFD00E5164D /* PackupMainView.swift in Sources */,
 				91A1F4EF256B4A39001E7F8A /* Deadline.swift in Sources */,
 				91826D9A256ABDCD00E5164D /* Packup.xcdatamodeld in Sources */,
@@ -633,6 +642,7 @@
 				91A1F505256B4CCB001E7F8A /* DeadlineView.swift in Sources */,
 				91826D9E256ABDCD00E5164D /* ContentView.swift in Sources */,
 				91321DFD2585D773000CB3EA /* DeadlineDetailView.swift in Sources */,
+				91BC4CC6259C460700B10DB8 /* CourseInfoJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +650,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91BC4CCE259C4FEA00B10DB8 /* CourseInfoFetcher.swift in Sources */,
 				91826DFA256ABEFD00E5164D /* PackupMainView.swift in Sources */,
 				91A1F4F0256B4A39001E7F8A /* Deadline.swift in Sources */,
 				91826D9B256ABDCD00E5164D /* Packup.xcdatamodeld in Sources */,
@@ -656,6 +667,7 @@
 				91A1F506256B4CCB001E7F8A /* DeadlineView.swift in Sources */,
 				91826D9F256ABDCE00E5164D /* ContentView.swift in Sources */,
 				91321DFE2585D773000CB3EA /* DeadlineDetailView.swift in Sources */,
+				91BC4CC7259C460700B10DB8 /* CourseInfoJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
