@@ -12,7 +12,7 @@ struct SwitchView: View {
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var packup: Packup
     
-    // a @State is necessary here to notify the UI on the first launch
+    // an @State is necessary here to notify the UI on the first launch
     @State var accountValid: Bool = false
     
     var infoExpired: Bool {

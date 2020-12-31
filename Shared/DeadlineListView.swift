@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import FluentIcons
 
 struct DeadlineListView: View {
     @FetchRequest(entity: Deadline.entity(),
@@ -33,7 +34,7 @@ struct DeadlineListView: View {
     
     @State var isShowingDeadlineDetails: Bool = false
     @State var syncing: Bool = false
-    
+    @State var isAddingDeadline: Bool = false
     
     var body: some View {
         VStack(spacing: 0.0) {
@@ -75,77 +76,79 @@ struct DeadlineListView: View {
             }
             .foregroundColor(.white)
             .background(
-                Color("PackupBlue").edgesIgnoringSafeArea([.top, .leading, .trailing])
+                Color("PackupBlue").edgesIgnoringSafeArea([.top, .leading, .trailing]).shadow(radius: 5)
+                    
             )
             GeometryReader { geometry in
-                List {
-                    // TODO: transition
-                    if starredDeadlineList.count > 0 {
-                        ForEach(starredDeadlineList, id: \.uid) { deadline in
-                            if deadline == starredDeadlineList.first {
-                                Button(action: { isShowingDeadlineDetails = true }) {
-                                    DeadlineView(deadline: deadline, hasCaption: true, caption: "Starred")
-                                }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                        .environment(\.managedObjectContext, context)
+                ZStack {
+                    List {
+                        // TODO: transition
+                        if starredDeadlineList.count > 0 {
+                            ForEach(starredDeadlineList, id: \.uid) { deadline in
+                                if deadline == starredDeadlineList.first {
+                                    Button(action: { isShowingDeadlineDetails = true }) {
+                                        DeadlineView(deadline: deadline, hasCaption: true, caption: "Starred")
+                                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                        DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                            .environment(\.managedObjectContext, context)
+                                    }
+                                    .listRowInsets(EdgeInsets())
+                                } else {
+                                    Button(action: { isShowingDeadlineDetails = true }) {
+                                        DeadlineView(deadline: deadline, hasCaption: false)
+                                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                        DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                            .environment(\.managedObjectContext, context)
+                                    }
+                                    .listRowInsets(EdgeInsets())
                                 }
-                                .listRowInsets(EdgeInsets())
-                            } else {
-                                Button(action: { isShowingDeadlineDetails = true }) {
-                                    DeadlineView(deadline: deadline, hasCaption: false)
-                                }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                        .environment(\.managedObjectContext, context)
+                            }
+                        }
+                        
+                        if deadlineList.count > 0 {
+                            ForEach(deadlineList, id: \.uid) { deadline in
+                                if deadline == deadlineList.first {
+                                    Button(action: { isShowingDeadlineDetails = true }) {
+                                        DeadlineView(deadline: deadline, hasCaption: true, caption: "Pending")
+                                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                        DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                            .environment(\.managedObjectContext, context)
+                                    }
+                                    .listRowInsets(EdgeInsets())
+                                } else {
+                                    Button(action: { isShowingDeadlineDetails = true }) {
+                                        DeadlineView(deadline: deadline, hasCaption: false)
+                                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                        DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                            .environment(\.managedObjectContext, context)
+                                    }
+                                    .listRowInsets(EdgeInsets())
                                 }
-                                .listRowInsets(EdgeInsets())
+                            }
+                        }
+                        
+                        if completedDeadlineList.count > 0 {
+                            ForEach(completedDeadlineList, id: \.uid) { deadline in
+                                if deadline == completedDeadlineList.first {
+                                    Button(action: { isShowingDeadlineDetails = true }) {
+                                        DeadlineView(deadline: deadline, hasCaption: true, caption: "Completed")
+                                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                        DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                            .environment(\.managedObjectContext, context)
+                                    }
+                                    .listRowInsets(EdgeInsets())
+                                } else {
+                                    Button(action: { isShowingDeadlineDetails = true }) {
+                                        DeadlineView(deadline: deadline, hasCaption: false)
+                                    }.sheet(isPresented: $isShowingDeadlineDetails) {
+                                        DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
+                                            .environment(\.managedObjectContext, context)
+                                    }
+                                    .listRowInsets(EdgeInsets())
+                                }
                             }
                         }
                     }
-                    
-                    if deadlineList.count > 0 {
-                        ForEach(deadlineList, id: \.uid) { deadline in
-                            if deadline == deadlineList.first {
-                                Button(action: { isShowingDeadlineDetails = true }) {
-                                    DeadlineView(deadline: deadline, hasCaption: true, caption: "Pending")
-                                }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                        .environment(\.managedObjectContext, context)
-                                }
-                                .listRowInsets(EdgeInsets())
-                            } else {
-                                Button(action: { isShowingDeadlineDetails = true }) {
-                                    DeadlineView(deadline: deadline, hasCaption: false)
-                                }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                        .environment(\.managedObjectContext, context)
-                                }
-                                .listRowInsets(EdgeInsets())
-                            }
-                        }
-                    }
-                    
-                    if completedDeadlineList.count > 0 {
-                        ForEach(completedDeadlineList, id: \.uid) { deadline in
-                            if deadline == completedDeadlineList.first {
-                                Button(action: { isShowingDeadlineDetails = true }) {
-                                    DeadlineView(deadline: deadline, hasCaption: true, caption: "Completed")
-                                }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                        .environment(\.managedObjectContext, context)
-                                }
-                                .listRowInsets(EdgeInsets())
-                            } else {
-                                Button(action: { isShowingDeadlineDetails = true }) {
-                                    DeadlineView(deadline: deadline, hasCaption: false)
-                                }.sheet(isPresented: $isShowingDeadlineDetails) {
-                                    DeadlineDetailView(deadline: deadline, isShowingDeadlineDetails: $isShowingDeadlineDetails)
-                                        .environment(\.managedObjectContext, context)
-                                }
-                                .listRowInsets(EdgeInsets())
-                            }
-                        }
-                    }
-                    
                     if starredDeadlineList.count == 0 &&
                         deadlineList.count == 0 &&
                         completedDeadlineList.count == 0 {
@@ -159,17 +162,23 @@ struct DeadlineListView: View {
                                 .padding()
                         }
                     }
-                    
                 }
-                .overlay(AddItem()
-                            .position(x: geometry.size.width - 40.0, y: geometry.size.height - 40.0)
+                .overlay(
+                    Button(action: { isAddingDeadline = true }) {
+                        AddItemView()
+                            .shadow(radius: 5)
+                    }.position(x: geometry.size.width - 40.0, y: geometry.size.height - 40.0)
+                    .sheet(isPresented: $isAddingDeadline) {
+                        DeadlineAddView(isAddingDeadline: $isAddingDeadline)
+                            .environment(\.managedObjectContext, context)
+                    }
                 )
             }
         }
     }
 }
 
-struct AddItem: View {
+struct AddItemView: View {
     var body: some View {
         Image(uiImage: UIImage(fluent: .add24Regular))
             .foregroundColor(.white)
