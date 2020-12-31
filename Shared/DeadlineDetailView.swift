@@ -11,7 +11,7 @@ import CoreData
 struct DeadlineDetailView: View {
     @State var sliderValue: Double = 0.0
     
-    // TODO: set to false on save
+    // TODO: set to false on save (maybe unnecessary)
     @State var modified: Bool = false
     
     var deadline: Deadline
@@ -24,6 +24,8 @@ struct DeadlineDetailView: View {
     
     @Binding var isShowingDeadlineDetails: Bool
     
+    @State var isShowingDeleteAlert: Bool = false
+    
     init(deadline: Deadline, isShowingDeadlineDetails: Binding<Bool>) {
         self.deadline = deadline
         self._selectedReminderDate = State(wrappedValue: self.deadline.reminder ?? Date())
@@ -35,7 +37,7 @@ struct DeadlineDetailView: View {
             let endDate = dueTime
             reminderDateRange = startDate...endDate
         } else {
-            let endComponents = DateComponents(year: 2070, month: 12, day: 31)
+            let endComponents = DateComponents(year: 2077, month: 12, day: 31)
             reminderDateRange = startDate...Calendar.current.date(from: endComponents)!
         }
     }
@@ -50,6 +52,33 @@ struct DeadlineDetailView: View {
                         
                     
                     HStack {
+                        Button(action: {
+                            isShowingDeleteAlert = true
+                        }) {
+                            Text("Delete")
+                                .foregroundColor(.red)
+                        }
+                        .padding(.leading)
+                        .alert(isPresented: $isShowingDeleteAlert) {
+                            Alert(title: Text("Delete this deadline?"),
+                                  message: Text("This action cannot be undone."),
+                                  primaryButton: .destructive(Text("Yes"), action: {
+                                        // TODO: modify the hasBeenDeleted instead of actually deleting it
+                                        context.delete(deadline)
+                                        deadline.objectWillChange.send()
+                                        
+                                        do {
+                                            try context.save()
+                                        } catch {
+                                            print("Unable to delete deadline in DeadlineDetailView!")
+                                        }
+                                        
+                                        isShowingDeadlineDetails = false
+                                  }),
+                                  secondaryButton: .default(Text("No")))
+                        }
+                        
+                        
                         Spacer()
 
                         Button(action: {
@@ -76,6 +105,7 @@ struct DeadlineDetailView: View {
                     VStack(alignment: .leading, spacing: 0.0) {
                         HStack {
                             // TODO: Submitted
+                            // FIXME: Customized deadlines have no submissions
                             if let dueTime = deadline.dueTime, dueTime > Date() {
                                 Text("\(Date().daysLeftSinceNow(to: dueTime)) Days Left")
                                     .tagBackground(Color.red)
@@ -117,13 +147,27 @@ struct DeadlineDetailView: View {
                     Group {
                         Group {
                             HStack {
-                                Text("Description")
+                                Text("List")
                                     .grayHeadline()
                                 Spacer()
                             }
                                 
                             HStack {
                                 Text(deadline.sourceName)
+                                    .padding([.leading, .trailing, .bottom])
+                                Spacer()
+                            }
+                        }
+                        
+                        Group {
+                            HStack {
+                                Text("Description")
+                                    .grayHeadline()
+                                Spacer()
+                            }
+                            
+                            HStack {
+                                Text(deadline.deadlineDescription)
                                     .padding([.leading, .trailing, .bottom])
                                 Spacer()
                             }

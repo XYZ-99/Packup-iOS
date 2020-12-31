@@ -28,7 +28,7 @@ extension Deadline {
     
     var deadlineDescription: String {
         get {
-            deadlineDescription_ ?? "Unknown"
+            deadlineDescription_ ?? "No description."
         }
         set {
             deadlineDescription_ = newValue
@@ -55,7 +55,7 @@ extension Deadline {
     
     var sourceName: String {
         get {
-            sourceName_ ?? "Unknown source name"
+            sourceName_ ?? "No course source."
         }
         set {
             sourceName_ = newValue

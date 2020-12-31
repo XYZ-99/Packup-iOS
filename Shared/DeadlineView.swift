@@ -100,7 +100,7 @@ struct DeadlineView: View {
                            spacing: 5.0) {
                         Text(deadline.name)
                             .font(.title3)
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .fontWeight(.bold)
                             
                         
                         Label(
@@ -171,7 +171,7 @@ struct DeadlineView: View {
                            spacing: 5.0) {
                         Text(deadline.name)
                             .font(.title3)
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .fontWeight(.bold)
                             
                         
                         Label(
